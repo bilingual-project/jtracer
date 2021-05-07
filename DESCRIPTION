@@ -1,19 +1,7 @@
 Package: jtracer
 Title: An R interface to jTRACE
 Version: 0.0.0.9000
-Authors@R: 
-    c(
-    person(given = "Gonzalo",
-           family = "Garcia-Castro",
-           role = c("aut", "cre"),
-           email = "gonzalo.garciadecastro@upf.edu",
-           comment = c(ORCID = "0000-0002-8553-4209")
-           ),
-    person(given = "Serene",
-           family = "Siow",
-           role = c("aut", "cre")
-           )
-    )
+Authors@R: c(person(given = "Gonzalo", family = "Garcia-Castro", role = c("aut", "cre"), email = "gonzalo.garciadecastro@upf.edu", comment = c(ORCID = "0000-0002-8553-4209")), person(given = "Serene", family = "Siow", role = c("aut")))
 Description: R helper functions to generate files to run simulations in jTRACE.
 License: MIT + file LICENSE
 Encoding: UTF-8
@@ -23,7 +11,9 @@ RoxygenNote: 7.1.1
 Imports: 
     lifecycle,
     magrittr,
-    tibble
+    rJava,
+    tibble,
+    XML
 Suggests: 
     spelling,
     testthat (>= 3.0.0)

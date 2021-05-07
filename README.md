@@ -1,2 +1,65 @@
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
 # jtracer
-R interface to jTRACE.
+
+<!-- badges: start -->
+<!-- badges: end -->
+
+jtracer provides an R interfacet to jTRACE, a reimplementation of the
+TRACE model of spoken word recognition (McClelland & Elman, 1986)
+created by Strauss, Harris & Magnusson (2007). Using the functions in
+this package you can generate the files you need to perform simulations
+in jTRACE.
+
+## Installation
+
+You can install the released version of jtracer from
+[CRAN](https://CRAN.R-project.org) with:
+
+``` r
+install.packages("jtracer")
+```
+
+And the development version from [GitHub](https://github.com/) with:
+
+``` r
+# install.packages("devtools")
+devtools::install_github("bilingual-project/jtracer")
+```
+
+## Example
+
+This is a basic example which shows you how to solve a common problem:
+
+``` r
+library(jtracer)
+## basic example code
+```
+
+What is special about using `README.Rmd` instead of just `README.md`?
+You can include R chunks like so:
+
+``` r
+summary(cars)
+#>      speed           dist       
+#>  Min.   : 4.0   Min.   :  2.00  
+#>  1st Qu.:12.0   1st Qu.: 26.00  
+#>  Median :15.0   Median : 36.00  
+#>  Mean   :15.4   Mean   : 42.98  
+#>  3rd Qu.:19.0   3rd Qu.: 56.00  
+#>  Max.   :25.0   Max.   :120.00
+```
+
+You’ll still need to render `README.Rmd` regularly, to keep `README.md`
+up-to-date. `devtools::build_readme()` is handy for this. You could also
+use GitHub Actions to re-render `README.Rmd` every time you push. An
+example workflow can be found here:
+<https://github.com/r-lib/actions/tree/master/examples>.
+
+You can also embed plots, for example:
+
+<img src="man/figures/README-pressure-1.png" width="100%" />
+
+In that case, don’t forget to commit and push the resulting figure
+files, so they display on GitHub and CRAN.
