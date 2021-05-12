@@ -12,6 +12,7 @@ Imports:
     lifecycle,
     magrittr,
     rJava,
+    stringr,
     tibble,
     XML
 Suggests: 

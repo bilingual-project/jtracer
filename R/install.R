@@ -28,6 +28,15 @@ jtrace_check_java <- function(){
   }
 }
 
+
+#' Check if jTRACE is installed
+#' @export jtrace_is_installed
+jtrace_is_installed <- function(){
+  path <- set_jtrace_path()
+  exists <- dir.exists(path)
+  return(exists)
+}
+
 #' Set jRTACE path
 #' @export set_jtrace_path
 #' @param path Character string indicating the path in which to install jTRACE
@@ -36,7 +45,6 @@ set_jtrace_path <- function(
 ){
   if(is.null(path)) path <- file.path(Sys.getenv("HOME"), ".jtracer", fsep = "\\")
   ui_line(paste0("jtrace path has been set at ", ui_path(x = path)))
-  
   .jtrace$PATH <- path
 }
 
@@ -54,12 +62,11 @@ jtrace_install <- function(
   if(is.null(path)) path <- file.path(Sys.getenv("HOME"), ".jtracer", fsep = "\\")
   jtrace_check_java()
   
-  
   # check if folder exists
   if (dir.exists(path)){
     # if exists, ask if re-install
     if (is.null(overwrite) || !overwrite){
-      overwrite <- ui_yeah("jtrace already exists. Do you want to re-install it?")
+      overwrite <- ui_yeah(".jtrace already exists. Do you want to re-install it?")
       install <- overwrite
       if (install){
         unlink("path", recursive = TRUE, force = TRUE)
