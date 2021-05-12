@@ -9,6 +9,13 @@ jtrace_get_language(language_name = NULL)
 \arguments{
 \item{language_name}{Character vector of length 1 indicating the jTRACE language to import}
 }
+\value{
+A list of data frames containing a data frame for the phonemes and their
+scores across the seven features implemented in jTRACE (\code{features}),
+a data frame containing the duration scalars of each phoneme for the even features
+implemented in jTRACE (\code{duration_scalar}), and a data frame containing the
+allophonic relations between the phonemes (\code{allophonic_relations}).
+}
 \description{
 Get jTRACE language
 }

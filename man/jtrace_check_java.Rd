@@ -2,10 +2,16 @@
 % Please edit documentation in R/install.R
 \name{jtrace_check_java}
 \alias{jtrace_check_java}
-\title{Check if Java is installed}
+\title{to be 1.4 or higher. This function checks if Java installed, and if the current
+version is recent enough for Java to run. If not, you will be pointed to the Java
+website where you can download the most recent version of Java. After installing it, you will
+be able to install and launch jTRACE.}
 \usage{
 jtrace_check_java()
 }
 \description{
-Check if Java is installed
+to be 1.4 or higher. This function checks if Java installed, and if the current
+version is recent enough for Java to run. If not, you will be pointed to the Java
+website where you can download the most recent version of Java. After installing it, you will
+be able to install and launch jTRACE.
 }

@@ -7,7 +7,7 @@
 jtrace_create_lexicon(phonology, frequency, lexicon_name)
 }
 \arguments{
-\item{phonology}{Character vector with the phonological transcription of the word forms}
+\item{phonology}{Character vector with the jTRACE phonological transcription of the word forms}
 
 \item{frequency}{Numeric vector with the lexical frequencies of the word forms}
 

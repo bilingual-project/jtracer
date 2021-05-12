@@ -1,8 +1,14 @@
 #' Get jTRACE language
 #' @export jtrace_get_language
+#' @return A list of data frames containing a data frame for the phonemes and their
+#'  scores across the seven features implemented in jTRACE (\code{features}),
+#'  a data frame containing the duration scalars of each phoneme for the even features
+#'  implemented in jTRACE (\code{duration_scalar}), and a data frame containing the
+#'  allophonic relations between the phonemes (\code{allophonic_relations}).
 #' @importFrom XML xmlToDataFrame
 #' @importFrom stringr str_extract
 #' @importFrom stringr str_split
+#' @importFrom usethis ui_path
 #' @param language_name Character vector of length 1 indicating the jTRACE language to import
 jtrace_get_language <- function(
   language_name = NULL
@@ -91,10 +97,11 @@ jtrace_get_language <- function(
 #' @export jtrace_create_language
 #' @importFrom tidyr pivot_longer
 #' @importFrom tidyr pivot_wider
-#' @param features Data frame or matrix with N rows (phonemes) and 9 columns (acoustic features). Acoustic features are in the following order: burst (bur), voicing (voi), consonantal (con), acuteness (grd), diffuseness (dif), vocalic (voc), power (pow). See McClelland & Elman (1986).
+#' @importFrom usethis ui_done
+#' @importFrom usethis ui_code
 #' @param duration_scalar Matrix or data frame indicating the values of the duration scalar, with each phoneme as a row and each feature as a column. If NULL (default), all duration values are set to 1.
 #' @param allophonic_relations Array or data frame with logical values indicating whether each combination of phonemes is an allophone, with phonemes are rows and columns. If NULL (default), no allophonic relations are specified.
-#' @param phonemes Character vector indicating the jTRACE notation of each phoneme. It must be the same length as the number of rows of the matrix or data frame introduced in \code{features}. This argument can be left NULL (default) if the matrix or data frame introduced in \code{features} has appropriate row names indicaitng the jTRACE notation of the phonemes.
+#' @param phonemes Character vector indicating the jTRACE notation of each phoneme. It must be the same length as the number of rows of the matrix or data frame introduced in \code{features}. This argument can be left NULL (default) if the matrix or data frame introduced in \code{features} has appropriate row names indicating the jTRACE notation of the phonemes.
 #' @param language_name Name of the language that will be created.
 jtrace_create_language <- function(
   features,
@@ -166,6 +173,6 @@ jtrace_create_language <- function(
   # output path
   output_path <- file(paste0(.jtrace$PATH, "/languages/", language_name, ".jt"))
   writeLines(text = paste0(x, collapse = ""), con = output_path)
-  ui_done(paste0("Language (phonemes) added as ", ui_code(language_name)))
+  ui_done(paste0("Language (phoneme set) added as ", ui_code(language_name)))
   
 }

@@ -9,6 +9,12 @@ jtrace_get_lexicon(lexicon = NULL)
 \arguments{
 \item{lexicon}{Character vector of length 1 indicating the jTRACE lexicon to import}
 }
+\value{
+A data frame with the contents of the retrieved jTRACE lexicon.
+This data frame will always contain a column for word forms (\code{phonology}).
+Sometimes, it will also contain another column for lexical frequencies (\code{frquency}),
+depending on the information provided in that file in the jTRACE original implementation.
+}
 \description{
 Get jTRACE lexicon
 }

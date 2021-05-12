@@ -1,5 +1,12 @@
-#' Check if Java is installed
+#' to be 1.4 or higher. This function checks if Java installed, and if the current
+#' version is recent enough for Java to run. If not, you will be pointed to the Java
+#' website where you can download the most recent version of Java. After installing it, you will
+#' be able to install and launch jTRACE.
 #' @export jtrace_check_java
+#' @importFrom usethis ui_yeah
+#' @importFrom usethis ui_oops
+#' @importFrom usethis ui_path
+#' @importFrom usethis ui_done
 jtrace_check_java <- function(){
   java_current_version <- system("java -version", intern = TRUE)
   if (is.null(java_current_version)) {
@@ -31,6 +38,9 @@ jtrace_check_java <- function(){
 
 #' Check if jTRACE is installed
 #' @export jtrace_is_installed
+#' @importFrom usethis ui_line
+#' @importFrom usethis ui_yeah
+#' @importFrom usethis ui_done
 jtrace_is_installed <- function(){
   path <- set_jtrace_path()
   exists <- dir.exists(path)
@@ -39,6 +49,7 @@ jtrace_is_installed <- function(){
 
 #' Set jRTACE path
 #' @export set_jtrace_path
+#' @importFrom usethis ui_line
 #' @param path Character string indicating the path in which to install jTRACE
 set_jtrace_path <- function(
   path = NULL
@@ -50,6 +61,8 @@ set_jtrace_path <- function(
 
 #' Download and install jTRACE
 #' @export jtrace_install
+#' @importFrom usethis ui_yeah
+#' @importFrom usethis ui_done
 #' @param path Character string indicating the path in which to install jTRACE
 #' @param overwrite Logical value indicating whether to replace an existing jTRACE folder, in case there is
 jtrace_install <- function(
@@ -69,7 +82,7 @@ jtrace_install <- function(
       overwrite <- ui_yeah(".jtrace already exists. Do you want to re-install it?")
       install <- overwrite
       if (install){
-        unlink("path", recursive = TRUE, force = TRUE)
+        unlink(path, recursive = TRUE, force = TRUE)
         ui_done("Removed previous jTRACE folder")
       } 
     }
@@ -103,6 +116,18 @@ jtrace_install <- function(
     suppressWarnings(file.rename(internal_files, gsub("\\/jtrace-a64", "", internal_files)))
     unlink(mid_dir, recursive = FALSE, force = TRUE)
     dir.create(path = paste0(path, "/languages"), showWarnings = FALSE)
+    
+    # change .jt to .xml
+    file_names <- list.files(paste0(.jtrace$PATH, "/lexicons"), recursive = TRUE)
+    file_names_new <- gsub(".jt", ".xml", file_names)
+    file_paths <- list.files(paste0(.jtrace$PATH, "/lexicons"), recursive = TRUE, full.names = TRUE)
+    for (i in 1:length(file_paths)){
+      invisible(
+        suppressWarnings(
+          file.rename(from = file_paths[i], to = paste0(.jtrace$PATH, "/lexicons/", file_names_new[i]))
+        )
+      )
+    }
     ui_done("Installed sucessfully")
   }
   

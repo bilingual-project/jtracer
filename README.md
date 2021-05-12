@@ -6,60 +6,71 @@
 <!-- badges: start -->
 <!-- badges: end -->
 
-jtracer provides an R interfacet to jTRACE, a reimplementation of the
-TRACE model of spoken word recognition (McClelland & Elman, 1986)
-created by Strauss, Harris & Magnusson (2007). Using the functions in
+jtracer provides an R interface to jTRACE, a re-implementation of the
+**TRACE** model of spoken word recognition (McClelland & Elman,
+[1986](https://www.sciencedirect.com/science/article/pii/0010028586900150))
+created by Strauss, Harris & Magnusson
+([2007](https://magnuson.psy.uconn.edu/jtrace/)). Using the functions in
 this package you can generate the files you need to perform simulations
 in jTRACE.
 
 ## Installation
 
-You can install the released version of jtracer from
-[CRAN](https://CRAN.R-project.org) with:
-
-``` r
-install.packages("jtracer")
-```
-
-And the development version from [GitHub](https://github.com/) with:
+You can install it from [GitHub](https://github.com/) with:
 
 ``` r
 # install.packages("devtools")
 devtools::install_github("bilingual-project/jtracer")
 ```
 
-## Example
+## Installing and launching jTRACE
 
-This is a basic example which shows you how to solve a common problem:
-
-``` r
-library(jtracer)
-## basic example code
-```
-
-What is special about using `README.Rmd` instead of just `README.md`?
-You can include R chunks like so:
+First, you need to download jTRACE. You do it from R with:
 
 ``` r
-summary(cars)
-#>      speed           dist       
-#>  Min.   : 4.0   Min.   :  2.00  
-#>  1st Qu.:12.0   1st Qu.: 26.00  
-#>  Median :15.0   Median : 36.00  
-#>  Mean   :15.4   Mean   : 42.98  
-#>  3rd Qu.:19.0   3rd Qu.: 56.00  
-#>  Max.   :25.0   Max.   :120.00
+jtracer::jtrace_install()
 ```
 
-You’ll still need to render `README.Rmd` regularly, to keep `README.md`
-up-to-date. `devtools::build_readme()` is handy for this. You could also
-use GitHub Actions to re-render `README.Rmd` every time you push. An
-example workflow can be found here:
-<https://github.com/r-lib/actions/tree/master/examples>.
+This will download the jTRACE folder from
+<https://magnuson.psy.uconn.edu/jtrace/> into your home directory
+(normally Documents) as `.jtrace`. You won’t have to open this folder to
+use jtracer. This function will also check if a sufficiently recent
+version of Java is up and running (&gt;1.4). If not, it will prompt you
+to do it.
 
-You can also embed plots, for example:
+Once an appropriate version of Java is up and running, and jTRACE has
+been installed, you will be able to launch jTRACE with:
 
-<img src="man/figures/README-pressure-1.png" width="100%" />
+``` r
+jtracer::jtrace_launch()
+```
 
-In that case, don’t forget to commit and push the resulting figure
-files, so they display on GitHub and CRAN.
+## Extracting lexica from jTRACE
+
+jTRACE has multiple lexica available to perform simulations. By default,
+it offers:
+
+-   biglex\_lr
+-   biglex\_lr\_^a
+-   biglex901
+-   context\_lex
+-   empty
+-   initial\_lexicon
+-   sevenlex
+-   slex
+-   slex\_pairs
+
+You can import a lexicon from jTRACE as a data frame with
+`jtrace_get_lexicon`. For example:
+
+``` r
+lex <- jtracer::jtrace_get_lexicon(lexicon = "slex")
+head(lex)
+#>       phonology      frequency
+#> 1    ^                   23248
+#> 2    ^br^pt                 37
+#> 3    ^dapt                  71
+#> 4    ^d^lt                  50
+#> 5    ^gri                  264
+#> 6    ^lat                   50
+```

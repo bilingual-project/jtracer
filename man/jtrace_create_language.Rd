@@ -13,13 +13,11 @@ jtrace_create_language(
 )
 }
 \arguments{
-\item{features}{Data frame or matrix with N rows (phonemes) and 9 columns (acoustic features). Acoustic features are in the following order: burst (bur), voicing (voi), consonantal (con), acuteness (grd), diffuseness (dif), vocalic (voc), power (pow). See McClelland & Elman (1986).}
-
 \item{duration_scalar}{Matrix or data frame indicating the values of the duration scalar, with each phoneme as a row and each feature as a column. If NULL (default), all duration values are set to 1.}
 
 \item{allophonic_relations}{Array or data frame with logical values indicating whether each combination of phonemes is an allophone, with phonemes are rows and columns. If NULL (default), no allophonic relations are specified.}
 
-\item{phonemes}{Character vector indicating the jTRACE notation of each phoneme. It must be the same length as the number of rows of the matrix or data frame introduced in \code{features}. This argument can be left NULL (default) if the matrix or data frame introduced in \code{features} has appropriate row names indicaitng the jTRACE notation of the phonemes.}
+\item{phonemes}{Character vector indicating the jTRACE notation of each phoneme. It must be the same length as the number of rows of the matrix or data frame introduced in \code{features}. This argument can be left NULL (default) if the matrix or data frame introduced in \code{features} has appropriate row names indicating the jTRACE notation of the phonemes.}
 
 \item{language_name}{Name of the language that will be created.}
 }

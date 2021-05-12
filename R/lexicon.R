@@ -1,17 +1,21 @@
 #' Get jTRACE lexicon
 #' @export jtrace_get_lexicon
+#' @return A data frame with the contents of the retrieved jTRACE lexicon.
+#' This data frame will always contain a column for word forms (\code{phonology}).
+#' Sometimes, it will also contain another column for lexical frequencies (\code{frquency}), 
+#' depending on the information provided in that file in the jTRACE original implementation.
 #' @importFrom XML xmlToDataFrame
 #' @param lexicon Character vector of length 1 indicating the jTRACE lexicon to import
 jtrace_get_lexicon <- function(
   lexicon = NULL
 ){
   lexicon_dir <- paste0(.jtrace$PATH, "/lexicons")
-  lexicon_list <- list.files(lexicon_dir, pattern = ".jt") 
+  lexicon_list <- gsub(".xml", "", list.files(lexicon_dir, pattern = ".xml"))
   if(is.null(lexicon) || !(lexicon %in% lexicon_list)){
     stop(paste0("Please, specify a valid lexicon. Available lexica are: ", paste0(lexicon_list, collapse = ", ")))
   }
   if(length(lexicon) > 1) stop("Please, specify just one lexicon")
-  lexicon <- xmlToDataFrame(paste0(lexicon_dir, "/", lexicon))
+  lexicon <- xmlToDataFrame(paste0(lexicon_dir, "/", lexicon, ".xml"))
   return(lexicon)
 }
 
@@ -19,7 +23,8 @@ jtrace_get_lexicon <- function(
 #' Create jTRACE lexicon
 #' @export jtrace_create_lexicon
 #' @importFrom readr write_lines
-#' @param phonology Character vector with the phonological transcription of the word forms
+#' @importFrom usethis ui_done
+#' @param phonology Character vector with the jTRACE phonological transcription of the word forms
 #' @param frequency Numeric vector with the lexical frequencies of the word forms
 #' @param lexicon_name Character string indicating the name of the lexicon that will be generated
 jtrace_create_lexicon <- function(
