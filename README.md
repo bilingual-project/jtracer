@@ -45,7 +45,7 @@ been installed, you will be able to launch jTRACE with:
 jtracer::jtrace_launch()
 ```
 
-## Extracting lexica from jTRACE
+## Extracting a lexicon from jTRACE
 
 jTRACE has multiple lexica available to perform simulations. By default,
 it offers:
