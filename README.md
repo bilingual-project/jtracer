@@ -64,7 +64,8 @@ You can import a lexicon from jTRACE as a data frame with
 `jtrace_get_lexicon`. For example:
 
 ``` r
-lex <- jtracer::jtrace_get_lexicon(lexicon = "slex")
+library(jtracer)
+lex <- jtrace_get_lexicon(lexicon = "slex")
 head(lex)
 #>       phonology      frequency
 #> 1    ^                   23248
@@ -73,4 +74,59 @@ head(lex)
 #> 4    ^d^lt                  50
 #> 5    ^gri                  264
 #> 6    ^lat                   50
+```
+
+## Creating a lexicon for jTRACE
+
+The `jtrace_create_lexicon` generates a new lexicon ready to be loaded
+to jTRACE and used in simulations. You will only need to provide
+phonological forms of the words you wish to include in the lexicon (in
+jTRACE notation) and their lexical frequency in the language of interest
+(English, Spanish, or Catalan).
+
+### Extracting lexical frequencies
+
+Since lexical frequencies are required to run a simulation, you must do
+so before creating your custom lexicon. You can extract the absolute,
+relative, or Zipf-transformed lexical frequencies of the words using the
+`jtrace_get_frequency` (see example below). You can consult the built-in
+dataset `frequencies` to see the complete list of frequencies available
+(extracted from the SUBTLEX-UK, SUBTLEX-ESP, and SUBTLEX-CAT databases).
+The `language` argument controls that language lexical frequencies
+should be looked up into, and the `scale` argument indicates the scale
+of the lexical frequencies that should be returned: “frequency\_abs”
+(raw counts), “frequency\_rel” (counts per million words), or
+“frequency\_zipf” (Zipf-transformed frequencies). Following jTRACE’s
+standards, frequencies are computed as counts per million by default.
+
+``` r
+my_words <- c("plane", "cake", "tiger", "ham", "seat")
+my_freqs <- jtrace_get_frequency(
+  word = my_words,
+  language = "English",
+  scale = c("frequency_rel", "frequency_zipf")
+)
+head(my_freqs)
+#> # A tibble: 5 x 4
+#>   word  language frequency_rel frequency_zipf
+#>   <chr> <chr>            <dbl>          <dbl>
+#> 1 plane English         0.0483           4.58
+#> 2 cake  English         0.0804           4.81
+#> 3 tiger English         0.0288           4.36
+#> 4 ham   English         0.0282           4.35
+#> 5 seat  English         0.0767           4.78
+```
+
+### Generate jTRACE lexicon
+
+Now we can create a new lexicon, which we will call “custom”:
+
+``` r
+my_phons <- c("plEIn", "kEIk", "taIɡ@", "ham", "sit")
+jtrace_create_lexicon(
+  phonology = my_phons,
+  frequency = my_freqs,
+  lexicon_name = "answers"
+)
+#> v Lexicon added as `answers`
 ```

@@ -1,0 +1,15 @@
+#' Lexical frequencies of all available words in SUBTLEX
+#'
+#' A dataset containing the absolute, relative, and Zipf-transformed frequencies of 456,546 words in Catalan, English, and Spanish
+#' diamonds.
+#'
+#' @format A data frame with 456,546 rows and 5 variables:
+#' \describe{
+#'   \item{word}{Orthographic word form}
+#'   \item{language}{Language the word form belongs to}
+#'   \item{frequency_abs}{Abolute frequency (raw counts in the corpus)}
+#'   \item{frequency_rel}{Relative frequency (counts per million words in the corpus)}
+#'   \item{frequency_zipf}{Zipf-transformed frequency (\code{log10(frequency_rel+3)})}
+#' }
+#' @source Catalan: \url{https://link.springer.com/article/10.3758%2Fs13428-019-01233-1}, English: \url{https://journals.sagepub.com/doi/full/10.1080/17470218.2013.850521}, Spanish: \url{https://psycnet.apa.org/record/2011-19447-001}
+"frequency"
