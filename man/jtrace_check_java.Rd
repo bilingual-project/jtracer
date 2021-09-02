@@ -15,3 +15,6 @@ version is recent enough for Java to run. If not, you will be pointed to the Jav
 website where you can download the most recent version of Java. After installing it, you will
 be able to install and launch jTRACE.
 }
+\examples{
+jtrace_check_java()
+}

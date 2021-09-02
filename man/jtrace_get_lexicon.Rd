@@ -18,3 +18,6 @@ depending on the information provided in that file in the jTRACE original implem
 \description{
 Get jTRACE lexicon
 }
+\examples{
+jtrace_get_lexicon("sevenlex")
+}

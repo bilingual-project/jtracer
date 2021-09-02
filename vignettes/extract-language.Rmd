@@ -1,0 +1,39 @@
+---
+title: "Extracting a language"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Extracting a language}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+## Extracting a language
+
+jTRACE includes a default language, which consists on a matrix with the scores of a series of phonemes across the seven feature dimensions considered by the TRACE model, a matrix with the duration score of each phoneme in each feature, and a matrix of logical values indicating the allophonic relations between phonemes. You can extract this language by running:
+
+```{r language_get}
+library(jtracer)
+default_language <- jtrace_get_language(language_name = "default")
+```
+
+This function will return a named list, containing the feature scores, duration scalars, and allophonic relations between phonemes:
+
+```{r language_features}
+default_language$features
+```
+
+```{r language_duration}
+default_language$duration_scalar
+```
+
+
+```{r language_allophones}
+default_language$allophonic_relations
+```

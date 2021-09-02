@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?><phonology xmlns='http://xml.netbeans.org/examples/targetNS'
+xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'
+xsi:schemaLocation='http://xml.netbeans.org/examples/targetNS file:C:\Users\gonza\Documents\jtrace-a64/Schema/jTRACESchema.xsd'>
+<languageName>default</languageName>
+<phonemes>
+<phoneme>
+	<symbol>-</symbol>
+	<features>0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 1.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 1.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 1.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 1.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 1.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 1.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 1.0 </features>
+	<durationScalar>1.0 1.0 1.0 1.0 1.0 1.0 1.0 </durationScalar>
+	<allophonicRelations>false false false false false false false false false false false false false false false </allophonicRelations>
+</phoneme>
+<phoneme>
+	<symbol>^</symbol>
+	<features>0.0 1.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 1.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 1.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.1 0.3 1.0 0.0 0.0 1.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 1.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 </features>
+	<durationScalar>1.0 1.0 1.0 1.0 1.0 1.0 1.0 </durationScalar>
+	<allophonicRelations>false false false false false false false false false false false false false false false </allophonicRelations>
+</phoneme>
+<phoneme>
+	<symbol>a</symbol>
+	<features>1.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 1.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 1.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.1 0.3 1.0 0.0 0.0 1.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 1.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 </features>
+	<durationScalar>1.0 1.0 1.0 1.0 1.0 1.0 1.0 </durationScalar>
+	<allophonicRelations>false false false false false false false false false false false false false false false </allophonicRelations>
+</phoneme>
+<phoneme>
+	<symbol>b</symbol>
+	<features>0.0 0.0 0.0 0.0 1.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 1.0 0.0 0.0 1.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 1.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 1.0 0.0 0.0 1.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.2 1.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 </features>
+	<durationScalar>1.0 1.0 1.0 1.0 1.0 1.0 1.0 </durationScalar>
+	<allophonicRelations>false false false false false false false false false false false false false false false </allophonicRelations>
+</phoneme>
+<phoneme>
+	<symbol>d</symbol>
+	<features>0.0 0.0 0.0 0.0 1.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 1.0 0.0 0.0 1.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 1.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 1.0 0.0 0.0 1.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.2 1.0 0.0 0.0 0.0 0.0 0.0 </features>
+	<durationScalar>1.0 1.0 1.0 1.0 1.0 1.0 1.0 </durationScalar>
+	<allophonicRelations>false false false false false false false false false false false false false false false </allophonicRelations>
+</phoneme>
+<phoneme>
+	<symbol>g</symbol>
+	<features>0.0 0.0 0.0 0.0 1.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 1.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 1.0 0.0 0.0 0.0 0.0 0.0 0.1 0.3 1.0 0.3 0.1 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 1.0 0.0 0.0 1.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.2 1.0 0.0 0.0 0.0 </features>
+	<durationScalar>1.0 1.0 1.0 1.0 1.0 1.0 1.0 </durationScalar>
+	<allophonicRelations>false false false false false false false false false false false false false false false </allophonicRelations>
+</phoneme>
+<phoneme>
+	<symbol>i</symbol>
+	<features>1.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 1.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 1.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 1.0 0.3 0.1 0.0 0.0 0.0 0.0 0.0 0.0 0.0 1.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 1.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 </features>
+	<durationScalar>1.0 1.0 1.0 1.0 1.0 1.0 1.0 </durationScalar>
+	<allophonicRelations>false false false false false false false false false false false false false false false </allophonicRelations>
+</phoneme>
+<phoneme>
+	<symbol>k</symbol>
+	<features>0.0 0.0 0.0 0.0 1.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 1.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 1.0 0.0 0.0 0.0 0.0 0.0 0.1 0.3 1.0 0.3 0.1 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 1.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 1.0 0.0 0.0 0.0 0.0 0.0 1.0 0.2 0.0 0.0 0.0 </features>
+	<durationScalar>1.0 1.0 1.0 1.0 1.0 1.0 1.0 </durationScalar>
+	<allophonicRelations>false false false false false false false false false false false false false false false </allophonicRelations>
+</phoneme>
+<phoneme>
+	<symbol>l</symbol>
+	<features>0.0 1.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 1.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 1.0 0.5 0.0 0.0 0.0 0.0 0.0 1.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 1.0 0.0 0.0 0.0 0.0 1.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 </features>
+	<durationScalar>1.0 1.0 1.0 1.0 1.0 1.0 1.0 </durationScalar>
+	<allophonicRelations>false false false false false false false false false false false false false false false </allophonicRelations>
+</phoneme>
+<phoneme>
+	<symbol>p</symbol>
+	<features>0.0 0.0 0.0 0.0 1.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 1.0 0.0 0.0 1.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 1.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 1.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 1.0 0.0 1.0 0.2 0.0 0.0 0.0 0.0 0.0 0.0 0.0 </features>
+	<durationScalar>1.0 1.0 1.0 1.0 1.0 1.0 1.0 </durationScalar>
+	<allophonicRelations>false false false false false false false false false false false false false false false </allophonicRelations>
+</phoneme>
+<phoneme>
+	<symbol>r</symbol>
+	<features>0.0 1.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 1.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.5 1.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 1.0 0.0 0.0 0.0 0.0 0.0 0.0 1.0 0.0 0.0 0.0 0.0 1.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 </features>
+	<durationScalar>1.0 1.0 1.0 1.0 1.0 1.0 1.0 </durationScalar>
+	<allophonicRelations>false false false false false false false false false false false false false false false </allophonicRelations>
+</phoneme>
+<phoneme>
+	<symbol>s</symbol>
+	<features>0.0 0.0 1.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 1.0 0.0 0.0 0.0 0.0 0.0 1.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 1.0 0.3 0.1 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 1.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 1.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 </features>
+	<durationScalar>1.0 1.0 1.0 1.0 1.0 1.0 1.0 </durationScalar>
+	<allophonicRelations>false false false false false false false false false false false false false false false </allophonicRelations>
+</phoneme>
+<phoneme>
+	<symbol>S</symbol>
+	<features>0.0 0.0 1.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 1.0 0.0 0.0 0.0 0.0 0.0 0.0 1.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.1 0.3 1.0 0.3 0.1 0.0 0.0 0.0 0.0 0.0 1.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 1.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 </features>
+	<durationScalar>1.0 1.0 1.0 1.0 1.0 1.0 1.0 </durationScalar>
+	<allophonicRelations>false false false false false false false false false false false false false false false </allophonicRelations>
+</phoneme>
+<phoneme>
+	<symbol>t</symbol>
+	<features>0.0 0.0 0.0 0.0 1.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 1.0 0.0 0.0 1.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 1.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 1.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 1.0 0.0 0.0 0.0 1.0 0.2 0.0 0.0 0.0 0.0 0.0 </features>
+	<durationScalar>1.0 1.0 1.0 1.0 1.0 1.0 1.0 </durationScalar>
+	<allophonicRelations>false false false false false false false false false false false false false false false </allophonicRelations>
+</phoneme>
+<phoneme>
+	<symbol>u</symbol>
+	<features>1.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 1.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 1.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.1 0.3 1.0 0.3 0.0 0.0 1.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 1.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 </features>
+	<durationScalar>1.0 1.0 1.0 1.0 1.0 1.0 1.0 </durationScalar>
+	<allophonicRelations>false false false false false false false false false false false false false false false </allophonicRelations>
+</phoneme>
+</phonemes>
+</phonology>

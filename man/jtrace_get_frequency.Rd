@@ -19,3 +19,9 @@ A data frame containing a column for the words and one column for the SUBTLEX fr
 \description{
 Extract lexical frequencies
 }
+\examples{
+my_words <- c("plane", "cake", "tiger", "ham", "seat")
+jtrace_get_frequency(words = my_words, language = "English", scale = "frequency_rel")
+jtrace_get_frequency(words = my_words, language = c("Spanish", "Catalan"), scale = "frequency_zipf")
+jtrace_get_frequency(words = my_words, language = c("Spanish"), scale = "frequency_abs")
+}

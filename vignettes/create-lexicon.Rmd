@@ -1,0 +1,72 @@
+---
+title: "Creating a lexicon"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Creating a lexicon}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(jtracer)
+```
+
+
+The `jtrace_create_lexicon`function generates a new lexicon ready to be loaded to jTRACE and used in simulations. You will only need to provide phonological forms of the words you wish to include in the lexicon (in jTRACE notation) and their lexical frequency in the language of interest (English, Spanish, or Catalan).
+
+## Extracting lexical frequencies
+
+Since lexical frequencies are required to run a simulation, you must do so before creating your custom lexicon. You can extract the absolute, relative, or Zipf-transformed lexical frequencies of the words using the `jtrace_get_frequency` (see example below). You can consult the built-in dataset `frequencies` (see `?frequency`) to see the complete list of frequencies available (extracted from the SUBTLEX-UK, SUBTLEX-ESP, and SUBTLEX-CAT databases):
+
+```{r frequencies_dataset, echo = TRUE}
+  head(frequency)
+```
+
+
+The `language` argument controls that language lexical frequencies should be looked up into, and the `scale` argument indicates the scale of the lexical frequencies that should be returned: "frequency_abs" (raw counts), "frequency_rel" (counts per million words), or "frequency_zipf" (Zipf-transformed frequencies). Following jTRACE's standards, frequencies are computed as counts per million by default.
+
+
+```{r frequencies, echo=TRUE}
+my_words <- c("plane", "cake", "tiger", "ham", "seat")
+my_freqs <- jtrace_get_frequency(
+  word = my_words,
+  language = "English",
+  scale = c("frequency_rel", "frequency_zipf")
+)
+head(my_freqs)
+```
+
+## Generating a jTRACE lexicon
+
+Now we can create a new lexicon, which we will call "custom":
+
+```{r lexicon_new, echo = TRUE}
+my_phons <- c("plEIn", "kEIk", "taIɡ@", "ham", "sit")
+jtrace_create_lexicon(
+  phonology = my_phons,
+  frequency = my_freqs,
+  lexicon_name = "answers"
+)
+```
+
+## Retrieving a lexicon
+
+Now we can check that our lexicon is available:
+
+```{r lexicons_list, echo = TRUE}
+jtrace_list_lexicons()
+```
+
+We can import it to our R session using the `jtrace_get_lexicon` (see code below). This function returns a data frame with two columns: `phonology` contains the phonological forms of the words included in the lexicon in jTRACE notation, and `frequency` contains the lexical frequency of each word form, as extracted when the lexicon was created.
+
+```{r lexicons_get, echo = TRUE}
+jtrace_get_lexicon(lexicon = "my_lex")
+```
+

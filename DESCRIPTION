@@ -11,23 +11,30 @@ RoxygenNote: 7.1.1
 Imports: 
     data.table,
     dplyr,
+    httr,
+    janitor,
     lifecycle,
     magrittr,
+    readr,
     readxl,
     rJava,
     rlang,
+    stats,
     stringr,
     tibble,
     tidyr,
     usethis,
+    utils,
     XML
 Suggests: 
-    httr,
+    knitr,
     spelling,
-    testthat (>= 3.0.0)
+    testthat (>= 3.0.0),
+    rmarkdown
 Config/testthat/edition: 3
 Language: en-US
 URL: https://github.com/bilingual-project/jtracer
 BugReports: https://github.com/bilingual-project/jtracer/issues
 Depends: 
     R (>= 2.10)
+VignetteBuilder: knitr

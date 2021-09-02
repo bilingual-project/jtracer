@@ -16,3 +16,8 @@ jtrace_create_lexicon(phonology, frequency, lexicon_name)
 \description{
 Create jTRACE lexicon
 }
+\examples{
+my_phons <- c("plEIn", "kEIk", "taIÉ¡@", "ham", "sit")
+my_freqs <- c(0.0483, 0.0804, 0.0288, 0.0282, 0.0767)
+jtrace_create_lexicon(phonology = my_phons, frequency = my_freqs, lexicon_name = "my_lex")
+}
