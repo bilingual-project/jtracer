@@ -12,7 +12,7 @@ jtrace_get_lexicon(lexicon = NULL)
 \value{
 A data frame with the contents of the retrieved jTRACE lexicon.
 This data frame will always contain a column for word forms (\code{phonology}).
-Sometimes, it will also contain another column for lexical frequencies (\code{frquency}),
+Sometimes, it will also contain another column for lexical frequencies (\code{frequency}),
 depending on the information provided in that file in the jTRACE original implementation.
 }
 \description{
@@ -20,4 +20,13 @@ Get jTRACE lexicon
 }
 \examples{
 jtrace_get_lexicon("sevenlex")
+}
+\references{
+Strauss, T. J., Harris, H. D., & Magnuson, J. S. (2007). jTRACE: A reimplementation and extension of the TRACE model of speech perception and spoken word recognition. Behavior Research Methods, 39(1), 19-30.
+}
+\seealso{
+\code{\link{jtrace_list_lexicons}} for listing available lexicons, and \code{\link{jtrace_create_language}} for creating a new lexicon.
+}
+\author{
+Gonzalo Garcia-Castro \href{mailto:gonzalo.garciadecastro@upf.edu}{gonzalo.garciadecastro@upf.edu}
 }

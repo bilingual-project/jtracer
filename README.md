@@ -10,8 +10,6 @@ experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](h
 [![R-CMD-check](https://github.com/bilingual-project/jtracer/workflows/R-CMD-check/badge.svg)](https://github.com/bilingual-project/jtracer/actions)
 <!-- badges: end -->
 
-Website: https://bilingual-project.github.io/jtracer/index.html
-
 This package provides an R interface to jTRACE, a re-implementation of
 the **TRACE** model of spoken word recognition (McClelland & Elman,
 [1986](https://www.sciencedirect.com/science/article/pii/0010028586900150))
@@ -44,7 +42,7 @@ devtools::install_github("bilingual-project/jtracer")
 
 ## Installing and launching jTRACE
 
-First, you need to download jTRACE. You can do it from tthe R console
+First, you need to download jTRACE. You can do it from the R console
 running:
 
 ``` r
@@ -236,7 +234,7 @@ jtrace_create_language(
   phonemes = p,
   features = f
 )
-#> v Language added at 'C:/Users/gonza/AppData/Local/Temp/Rtmpy8Vnnl/temp_libpath47a410173253/jtracer/jtrace/languages/custom.xml'
+#> v Language added at 'C:/Users/gonza/AppData/Local/Temp/Rtmpgf4Pgs/temp_libpathaf4639928c5/jtracer/jtrace/languages/custom.xml'
 ```
 
 As the output says, you new language has been converted to a .jt file

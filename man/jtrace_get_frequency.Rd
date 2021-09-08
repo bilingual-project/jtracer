@@ -25,3 +25,12 @@ jtrace_get_frequency(words = my_words, language = "English", scale = "frequency_
 jtrace_get_frequency(words = my_words, language = c("Spanish", "Catalan"), scale = "frequency_zipf")
 jtrace_get_frequency(words = my_words, language = c("Spanish"), scale = "frequency_abs")
 }
+\references{
+Strauss, T. J., Harris, H. D., & Magnuson, J. S. (2007). jTRACE: A reimplementation and extension of the TRACE model of speech perception and spoken word recognition. Behavior Research Methods, 39(1), 19-30.
+Van Heuven, W. J., Mandera, P., Keuleers, E., & Brysbaert, M. (2014). SUBTLEX-UK: A new and improved word frequency database for British English. Quarterly journal of experimental psychology, 67(6), 1176-1190.
+Cuetos, F., Glez-Nosti, M., Barbon, A., & Brysbaert, M. (2011). SUBTLEX-ESP: frecuencias de las palabras espanolas basadas en los subtitulos de las peliculas. Psicológica, 32(2), 133-144.
+Boada, R., Guasch, M., Haro, J., Demestre, J., & Ferré, P. (2020). SUBTLEX-CAT: Subtitle word frequencies and contextual diversity for Catalan. Behavior research methods, 52(1), 360-375.
+}
+\author{
+Gonzalo Garcia-Castro \href{mailto:gonzalo.garciadecastro@upf.edu}{gonzalo.garciadecastro@upf.edu}
+}

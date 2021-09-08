@@ -15,3 +15,12 @@ List jTRACE available languages
 \examples{
 jtrace_list_languages()
 }
+\references{
+Strauss, T. J., Harris, H. D., & Magnuson, J. S. (2007). jTRACE: A reimplementation and extension of the TRACE model of speech perception and spoken word recognition. Behavior Research Methods, 39(1), 19-30.
+}
+\seealso{
+\code{\link{jtrace_get_language}} for importing a language, and \code{\link{jtrace_create_language}} for creating a new language.
+}
+\author{
+Gonzalo Garcia-Castro \href{mailto:gonzalo.garciadecastro@upf.edu}{gonzalo.garciadecastro@upf.edu}
+}

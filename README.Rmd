@@ -39,7 +39,7 @@ devtools::install_github("bilingual-project/jtracer")
 
 ## Installing and launching jTRACE
 
-First, you need to download jTRACE. You can do it from tthe R console running:
+First, you need to download jTRACE. You can do it from the R console running:
 
 ```r
 jtracer::jtrace_install()
