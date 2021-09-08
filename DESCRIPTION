@@ -1,6 +1,6 @@
 Package: jtracer
 Title: An R interface to jTRACE
-Version: 1.0.0
+Version: 1.0.1
 Authors@R: c(person(given = "Gonzalo", family = "Garcia-Castro", role = c("aut", "cre"), email = "gonzalo.garciadecastro@upf.edu", comment = c(ORCID = "0000-0002-8553-4209")), person(given = "Serene", family = "Siow", role = c("aut")))
 Description: R helper functions to generate files to run simulations in jTRACE.
 License: MIT + file LICENSE

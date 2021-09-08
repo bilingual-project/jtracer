@@ -1,3 +1,11 @@
+# jtracer 1.0.1
+
+* New language added on installation: Mayor & Plunkett (2014)
+* Fix bug in `jtrace_get_lexicon`: duplicated phoneme names were being allowed, leading to an error. Now the function stops with instructions.
+* Added vignette for `jtrace_launch`
+* Updated README to include a description of jTRACE (from jTRACE website)
+* Added details, references, and authors to exported functions
+
 # jtracer 1.0.0
 
 * Added GitHub actions deployment
