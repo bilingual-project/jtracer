@@ -68,7 +68,7 @@ jtrace_create_lexicon <- function(
   footer <- "</lexicon>"
   output_path <- paste0(system.file("jtrace", "lexicons", package = "jtracer", mustWork = TRUE), .Platform$file.sep, lexicon_name, ".xml")
   write_lines(c(header, body, footer), file = output_path)
-  ui_done(paste0("Lexicon added at ", ui_code(lexicon_name)))
+  ui_done(paste0("Lexicon added at ", ui_path(output_path)))
 }
 
 #' Extract lexical frequencies

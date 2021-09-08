@@ -142,7 +142,7 @@ jtrace_get_language <- function(
 #'     voc = c(3, 8, 1, 6, 6, 7, 4),
 #'     pow = c(6, 4, 1, 6, 1, 1, 5)
 #' )
-#' now we create the language
+#' # now we create the language
 #' jtrace_create_language(language_name = "my_language", phonemes = p, features = f)
 jtrace_create_language <- function(
   phonemes = NULL,
