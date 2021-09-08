@@ -38,7 +38,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="index.html">jtracer</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.1</span>
       </span>
     </div>
 
@@ -71,6 +71,9 @@
     </li>
     <li>
       <a href="articles/extract-lexicon.html">Extracting a lexicon</a>
+    </li>
+    <li>
+      <a href="articles/launching-jtrace.html">Launching jTRACE from the R console</a>
     </li>
   </ul>
 </li>
@@ -105,6 +108,14 @@
 
 <p>Website: <a href="https://bilingual-project.github.io/jtracer/index.html" class="uri">https://bilingual-project.github.io/jtracer/index.html</a></p>
 <p>This package provides an R interface to jTRACE, a re-implementation of the <strong>TRACE</strong> model of spoken word recognition (McClelland &amp; Elman, <a href="https://www.sciencedirect.com/science/article/pii/0010028586900150">1986</a>) created by Strauss, Harris &amp; Magnusson (<a href="https://magnuson.psy.uconn.edu/jtrace/">2007</a>). Using the functions in this package you can generate the files you need to perform simulations in jTRACE.</p>
+<div id="what-is-jtrace" class="section level2">
+<h2 class="hasAnchor">
+<a href="#what-is-jtrace" class="anchor"></a>What is jTRACE?</h2>
+<p>From jTRACE <a href="https://magnuson.psy.uconn.edu/jtrace/">website</a>:</p>
+<blockquote>
+<p>TRACE is a highly influential model of spoken word recognition, created by McClelland and Elman (1986). The original implementation of that model, which we call “cTRACE,” was used to run dozens of simulations comparing TRACE’s behavior with results from experimental studies with human subjects. TRACE’s behavior accounted for human behavior in a number of important ways, and it is still frequently cited as the canonical interactive-activation model of word recognition.</p>
+</blockquote>
+</div>
 <div id="installation" class="section level2">
 <h2 class="hasAnchor">
 <a href="#installation" class="anchor"></a>Installation</h2>
@@ -259,7 +270,7 @@
   phonemes <span class="op">=</span> <span class="va">p</span>,
   features <span class="op">=</span> <span class="va">f</span>
 <span class="op">)</span>
-<span class="co">#&gt; v Language added at `custom`</span></code></pre></div>
+<span class="co">#&gt; v Language added at 'C:/Users/gonza/AppData/Local/Temp/Rtmpy8Vnnl/temp_libpath47a410173253/jtracer/jtrace/languages/custom.xml'</span></code></pre></div>
 <p>As the output says, you new language has been converted to a .jt file that is noew ready to be imported in jTRACE. You can launch jTRACE from your console by running <code><a href="reference/jtrace_launch.html">jtrace_launch()</a></code>. You will find the language at “.jtrace/languages/custom.jt” (see <code>.jtrace$PATH</code> to see where the .jtrace folder is located) in your machine.</p>
 <p>You can also get your language by running:</p>
 <div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
@@ -328,6 +339,7 @@
 <h2>Dev status</h2>
 <ul class="list-unstyled">
 <li><a href="https://lifecycle.r-lib.org/articles/stages.html#experimental"><img src="https://img.shields.io/badge/lifecycle-experimental-orange.svg" alt="Lifecycle: experimental"></a></li>
+<li><a href="https://github.com/bilingual-project/jtracer/actions"><img src="https://github.com/bilingual-project/jtracer/workflows/R-CMD-check/badge.svg" alt="R-CMD-check"></a></li>
 </ul>
 </div>
 </div>
