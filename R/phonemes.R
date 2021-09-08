@@ -1,6 +1,9 @@
 #' List jTRACE available languages
 #' @export jtrace_list_languages
+#' @author Gonzalo Garcia-Castro <gonzalo.garciadecastro@upf.edu>
 #' @returns A character vector listing the available languages in the jTRACE folder
+#' @seealso \code{\link{jtrace_get_language}} for importing a language, and \code{\link{jtrace_create_language}} for creating a new language.
+#' @references Strauss, T. J., Harris, H. D., & Magnuson, J. S. (2007). jTRACE: A reimplementation and extension of the TRACE model of speech perception and spoken word recognition. Behavior Research Methods, 39(1), 19-30.
 #' @examples
 #' jtrace_list_languages()
 jtrace_list_languages <- function(){
@@ -12,6 +15,7 @@ jtrace_list_languages <- function(){
 
 #' Get jTRACE language
 #' @export jtrace_get_language
+#' @author Gonzalo Garcia-Castro <gonzalo.garciadecastro@upf.edu>
 #' @importFrom rlang .data
 #' @importFrom stats setNames
 #' @importFrom utils download.file
@@ -19,6 +23,8 @@ jtrace_list_languages <- function(){
 #' @importFrom XML xmlToDataFrame
 #' @importFrom stringr str_extract
 #' @importFrom usethis ui_path
+#' @seealso \code{\link{jtrace_list_languages}} for listing available languages, and \code{\link{jtrace_create_language}} for creating a new language.
+#' @references Strauss, T. J., Harris, H. D., & Magnuson, J. S. (2007). jTRACE: A reimplementation and extension of the TRACE model of speech perception and spoken word recognition. Behavior Research Methods, 39(1), 19-30.
 #' @param language_name Character vector of length 1 indicating the jTRACE language to import. Defaults to "default".
 #' @return A list of data frames containing a data frame for the phonemes and their
 #'  scores across the seven features implemented in jTRACE (\code{features}),
@@ -31,85 +37,93 @@ jtrace_get_language <- function(
   language_name = "default"
 ){
   jtrace_is_installed(check = TRUE)
-  language_list <- jtrace_list_languages()
-  if (length(language_list)<1) stop("There are no languages available")
-  if (is.null(language_name) || !(language_name %in% gsub(".xml", "", language_list))){
-    stop(paste0("Please, specify a valid language. Available languages are: ", paste0(language_list, collapse = ", ")))
-  }
-  if(length(language_name) > 1) stop("Please, specify just one lexicon")
-  language_list <- paste0(system.file("jtrace", "languages", package = "jtracer", mustWork = TRUE), .Platform$file.sep, language_name, ".xml") %>%
-    readLines(warn = FALSE) %>% 
-    paste0(collapse = "") %>% 
-    strsplit(split = "<phoneme>") %>%
-    unlist() %>% 
-    as.list()
-  language_list[[1]] <- NULL
   
-  # symbols
-  phonemes <- lapply(language_list, function(x) {
-    str_extract(x, "(?<=\\<symbol\\>)(.*)(?=\\<\\/symbol>)") %>% 
-      strsplit(split = " ") %>% 
-      unlist() 
-  }) %>%
-    unlist()
-  phonemes <- phonemes[!is.na(phonemes)]
-  
-  # features
-  feature_names <- c("bur","voi", "con", "grd", "dif", "voc", "pow")
-  features <- lapply(language_list, function(x) {
-    y <- str_extract(x, "(?<=\\<features\\>)(.*)(?=\\<\\/features>)") %>% 
-      strsplit(split = " ") %>% 
+  suppressWarnings({
+    
+    language_list <- jtrace_list_languages()
+    if (length(language_list)<1) stop("There are no languages available")
+    if (is.null(language_name) || !(language_name %in% gsub(".xml", "", language_list))){
+      stop(paste0("Please, specify a valid language. Available languages are: ", paste0(language_list, collapse = ", ")))
+    }
+    if(length(language_name) > 1) stop("Please, specify just one lexicon")
+    language_list <- paste0(system.file("jtrace", "languages", package = "jtracer", mustWork = TRUE), .Platform$file.sep, language_name, ".xml") %>%
+      readLines(warn = FALSE) %>% 
+      paste0(collapse = "") %>% 
+      strsplit(split = "<phoneme>") %>%
       unlist() %>% 
-      as.numeric()
-    y <- as.data.frame(matrix(data = y[!is.na(y)], nrow = 9, ncol = 7))
-    colnames(y) <- feature_names
-    return(y)
-  })
-  features <- lapply(features, function(x) apply(X = x, MARGIN = 2, FUN = which.max))
-  features <- do.call(rbind, features)
-  row.names(features) <- phonemes
-  
-  # duration scalar
-  duration_scalar <- lapply(language_list, function(x) {
-    y <- str_extract(x, "(?<=\\<durationScalar\\>)(.*)(?=\\<\\/durationScalar>)") %>% 
-      strsplit(split = " ") %>% 
-      unlist() %>% 
-      as.numeric()
-    y <- as.data.frame(matrix(data = y[!is.na(y)], nrow = 1, ncol = 7))
-  })
-  duration_scalar <- do.call(rbind, duration_scalar)
-  row.names(duration_scalar) <- phonemes
-  colnames(duration_scalar) <- feature_names
-  
-  # allophonic relations
-  allophonic_relations <- lapply(language_list, function(x) {
-    y <- str_extract(x, "(?<=\\<allophonicRelations\\>)(.*)(?=\\<\\/allophonicRelations>)") %>% 
-      strsplit(split = " ") %>% 
+      as.list()
+    language_list[[1]] <- NULL
+    
+    # symbols
+    phonemes <- lapply(language_list, function(x) {
+      str_extract(x, "(?<=\\<symbol\\>)(.*)(?=\\<\\/symbol>)") %>% 
+        strsplit(split = " ") %>% 
+        unlist() 
+    }) %>%
       unlist()
+    phonemes <- phonemes[!is.na(phonemes)]
+    
+    # features
+    feature_names <- c("bur","voi", "con", "grd", "dif", "voc", "pow")
+    features <- lapply(language_list, function(x) {
+      y <- str_extract(x, "(?<=\\<features\\>)(.*)(?=\\<\\/features>)") %>% 
+        strsplit(split = " ") %>% 
+        unlist() %>% 
+        as.numeric()
+      y <- as.data.frame(matrix(data = y[!is.na(y)], nrow = 9, ncol = 7))
+      colnames(y) <- feature_names
+      return(y)
+    })
+    features <- lapply(features, function(x) apply(X = x, MARGIN = 2, FUN = which.max))
+    features <- do.call(rbind, features)
+    row.names(features) <- phonemes
+    
+    # duration scalar
+    duration_scalar <- lapply(language_list, function(x) {
+      y <- str_extract(x, "(?<=\\<durationScalar\\>)(.*)(?=\\<\\/durationScalar>)") %>% 
+        strsplit(split = " ") %>% 
+        unlist() %>% 
+        as.numeric()
+      y <- as.data.frame(matrix(data = y[!is.na(y)], nrow = 1, ncol = 7))
+    })
+    duration_scalar <- do.call(rbind, duration_scalar)
+    row.names(duration_scalar) <- phonemes
+    colnames(duration_scalar) <- feature_names
+    
+    # allophonic relations
+    allophonic_relations <- lapply(language_list, function(x) {
+      y <- str_extract(x, "(?<=\\<allophonicRelations\\>)(.*)(?=\\<\\/allophonicRelations>)") %>% 
+        strsplit(split = " ") %>% 
+        unlist()
+    })
+    allophonic_relations <- do.call(rbind, allophonic_relations)
+    allophonic_relations <- duration_scalar[!duration_scalar==""]
+    allophonic_relations <- duration_scalar=="true"
+    allophonic_relations <- array(allophonic_relations, dim = c(length(phonemes), length(phonemes)))
+    colnames(allophonic_relations) <- phonemes
+    row.names(allophonic_relations) <- phonemes
+    
+    # merge everything
+    language <- list(
+      features = features,
+      duration_scalar = duration_scalar,
+      allophonic_relations = allophonic_relations
+    )
+    
   })
-  allophonic_relations <- do.call(rbind, allophonic_relations)
-  allophonic_relations <- duration_scalar[!duration_scalar==""]
-  allophonic_relations <- duration_scalar=="true"
-  allophonic_relations <- array(allophonic_relations, dim = c(length(phonemes), length(phonemes)))
-  colnames(allophonic_relations) <- phonemes
-  row.names(allophonic_relations) <- phonemes
-  
-  # merge everything
-  language <- list(
-    features = features,
-    duration_scalar = duration_scalar,
-    allophonic_relations = allophonic_relations
-  )
   
   return(language)
 }
 
 #' Create jTRACE language (phonemic inventory)
 #' @export jtrace_create_language
+#' @author Gonzalo Garcia-Castro <gonzalo.garciadecastro@upf.edu>
 #' @importFrom tidyr pivot_longer
 #' @importFrom tidyr pivot_wider
 #' @importFrom usethis ui_done
 #' @importFrom usethis ui_code
+#' @seealso \code{\link{jtrace_list_languages}} for listing available languages, and \code{\link{jtrace_get_language}} for importing a language.
+#' @references Strauss, T. J., Harris, H. D., & Magnuson, J. S. (2007). jTRACE: A reimplementation and extension of the TRACE model of speech perception and spoken word recognition. Behavior Research Methods, 39(1), 19-30.
 #' @param phonemes Character vector indicating the jTRACE notation of each phoneme. It must be the same length as the number of rows of the matrix or data frame introduced in \code{features}. This argument can be left NULL (default) if the matrix or data frame introduced in \code{features} has appropriate row names indicating the jTRACE notation of the phonemes.
 #' @param features A M x N matrix or data frame (where M is the number of phonemes and N is 7, the number of features) that contains the values of the features (columns) for each phoneme (rows) with a score ranging from 0 to 9.
 #' @param duration_scalar Matrix or data frame indicating the values of the duration scalar, with each phoneme as a row and each feature as a column. If NULL (default), all duration values are set to 1.
@@ -129,10 +143,13 @@ jtrace_create_language <- function(
   if (is.null(language_name)) language_name <- readline()
   if (is.null(duration_scalar)) duration_scalar <- matrix(1, nrow = nrow(features), ncol = 7)
   if (is.null(allophonic_relations)) allophonic_relations <- array("false", dim = c(nrow(features), nrow(features)))
-  if (is.null(phonemes) & is.null(row.names(features))){
+  if (is.null(phonemes) & is.null(row.names(features))) {
     stop("Phoneme notations must be introduced in the phonemes argument or as row names in the features matrix")
   } else if (is.null(phonemes)) {
     phonemes <- row.names(features)
+  }
+  if (any(duplicated(phonemes))) {
+    stop("Phonemes cannot be duplicated. Hint: sometimes, special characters are encoded into normal ones, leading to duplications.")
   }
   
   # headers
@@ -187,6 +204,6 @@ jtrace_create_language <- function(
   # output path
   output_path <- paste0(system.file("jtrace", "languages", package = "jtracer", mustWork = TRUE), .Platform$file.sep, language_name, ".xml")
   writeLines(text = paste0(x, collapse = ""), con = output_path)
-  ui_done(paste0("Language added at ", ui_code(language_name)))
+  ui_done(paste0("Language added at ", ui_path(output_path)))
   
 }

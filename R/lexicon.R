@@ -1,6 +1,9 @@
 #' List jTRACE available lexicons
 #' @export jtrace_list_lexicons
+#' @author Gonzalo Garcia-Castro <gonzalo.garciadecastro@upf.edu>
 #' @returns A character vector listing the available lexicons in the jTRACE folder
+#' @seealso \code{\link{jtrace_get_lexicon}} for importing a lexicon, and \code{\link{jtrace_create_language}} for creating a new lexicon.
+#' @references Strauss, T. J., Harris, H. D., & Magnuson, J. S. (2007). jTRACE: A reimplementation and extension of the TRACE model of speech perception and spoken word recognition. Behavior Research Methods, 39(1), 19-30.
 #' @examples
 #' jtrace_list_lexicons()
 jtrace_list_lexicons <- function(){
@@ -12,12 +15,15 @@ jtrace_list_lexicons <- function(){
 
 #' Get jTRACE lexicon
 #' @export jtrace_get_lexicon
+#' @author Gonzalo Garcia-Castro <gonzalo.garciadecastro@upf.edu>
 #' @importFrom XML xmlToDataFrame
 #' @param lexicon Character vector of length 1 indicating the jTRACE lexicon to import
 #' @returns A data frame with the contents of the retrieved jTRACE lexicon.
 #' This data frame will always contain a column for word forms (\code{phonology}).
-#' Sometimes, it will also contain another column for lexical frequencies (\code{frquency}), 
+#' Sometimes, it will also contain another column for lexical frequencies (\code{frequency}), 
 #' depending on the information provided in that file in the jTRACE original implementation.
+#' @seealso \code{\link{jtrace_list_lexicons}} for listing available lexicons, and \code{\link{jtrace_create_language}} for creating a new lexicon.
+#' @references Strauss, T. J., Harris, H. D., & Magnuson, J. S. (2007). jTRACE: A reimplementation and extension of the TRACE model of speech perception and spoken word recognition. Behavior Research Methods, 39(1), 19-30.
 #' @examples
 #' jtrace_get_lexicon("sevenlex")
 jtrace_get_lexicon <- function(
@@ -39,11 +45,14 @@ jtrace_get_lexicon <- function(
 
 #' Create jTRACE lexicon
 #' @export jtrace_create_lexicon
+#' @author Gonzalo Garcia-Castro <gonzalo.garciadecastro@upf.edu>
 #' @importFrom readr write_lines
 #' @importFrom usethis ui_done
 #' @param phonology Character vector with the jTRACE phonological transcription of the word forms
 #' @param frequency Numeric vector with the lexical frequencies of the word forms
 #' @param lexicon_name Character string indicating the name of the lexicon that will be generated
+#' @seealso \code{\link{jtrace_list_lexicons}} for listing available lexicons, and \code{\link{jtrace_get_lexicon}} for importing a lexicon.
+#' @references Strauss, T. J., Harris, H. D., & Magnuson, J. S. (2007). jTRACE: A reimplementation and extension of the TRACE model of speech perception and spoken word recognition. Behavior Research Methods, 39(1), 19-30.
 #' @examples
 #' my_phons <- c("plEIn", "kEIk", "taIɡ@", "ham", "sit")
 #' my_freqs <- c(0.0483, 0.0804, 0.0288, 0.0282, 0.0767)
@@ -64,6 +73,7 @@ jtrace_create_lexicon <- function(
 
 #' Extract lexical frequencies
 #' @export jtrace_get_frequency
+#' @author Gonzalo Garcia-Castro <gonzalo.garciadecastro@upf.edu>
 #' @import dplyr
 #' @importFrom rlang .env
 #' @importFrom usethis ui_done
@@ -72,6 +82,10 @@ jtrace_create_lexicon <- function(
 #' @param language Character vector containing the language(s) to lookup the frequency of the words for. Must be one or more of "English", "Spanish, and/or "Catalan".
 #' @param scale Character vector indicating the scale(s) of the frequency scores. Must be one or more of "frequency_abs" (absolute frequency), "frequency_rel", (relative frequency, \code{counts/1e6}, default), or "frequency_zipf" (\code{log10(counts*1e6)+3})"
 #' @returns A data frame containing a column for the words and one column for the SUBTLEX frequencies in each language for the same word
+#' @references Strauss, T. J., Harris, H. D., & Magnuson, J. S. (2007). jTRACE: A reimplementation and extension of the TRACE model of speech perception and spoken word recognition. Behavior Research Methods, 39(1), 19-30.
+#'     Van Heuven, W. J., Mandera, P., Keuleers, E., & Brysbaert, M. (2014). SUBTLEX-UK: A new and improved word frequency database for British English. Quarterly journal of experimental psychology, 67(6), 1176-1190.
+#'     Cuetos, F., Glez-Nosti, M., Barbon, A., & Brysbaert, M. (2011). SUBTLEX-ESP: frecuencias de las palabras espanolas basadas en los subtitulos de las peliculas. Psicológica, 32(2), 133-144.
+#'     Boada, R., Guasch, M., Haro, J., Demestre, J., & Ferré, P. (2020). SUBTLEX-CAT: Subtitle word frequencies and contextual diversity for Catalan. Behavior research methods, 52(1), 360-375.
 #' @examples 
 #' my_words <- c("plane", "cake", "tiger", "ham", "seat")
 #' jtrace_get_frequency(words = my_words, language = "English", scale = "frequency_rel")

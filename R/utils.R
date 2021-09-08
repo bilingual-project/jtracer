@@ -1,5 +1,6 @@
 # utils
 
+#' @author Gonzalo Garcia-Castro <gonzalo.garciadecastro@upf.edu>
 #' @importFrom tidyr drop_na
 #' @importFrom httr GET
 #' @importFrom httr write_disk

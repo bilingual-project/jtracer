@@ -52,7 +52,7 @@ my_phons <- c("plEIn", "kEIk", "taIɡ@", "ham", "sit")
 jtrace_create_lexicon(
   phonology = my_phons,
   frequency = my_freqs,
-  lexicon_name = "answers"
+  lexicon_name = "my_lex"
 )
 ```
 

@@ -7,6 +7,7 @@
 
 [![Lifecycle:
 experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
+[![R-CMD-check](https://github.com/bilingual-project/jtracer/workflows/R-CMD-check/badge.svg)](https://github.com/bilingual-project/jtracer/actions)
 <!-- badges: end -->
 
 This package provides an R interface to jTRACE, a re-implementation of
@@ -16,6 +17,19 @@ created by Strauss, Harris & Magnusson
 ([2007](https://magnuson.psy.uconn.edu/jtrace/)). Using the functions in
 this package you can generate the files you need to perform simulations
 in jTRACE.
+
+## What is jTRACE?
+
+From jTRACE [website](https://magnuson.psy.uconn.edu/jtrace/):
+
+> TRACE is a highly influential model of spoken word recognition,
+> created by McClelland and Elman (1986). The original implementation of
+> that model, which we call “cTRACE,” was used to run dozens of
+> simulations comparing TRACE’s behavior with results from experimental
+> studies with human subjects. TRACE’s behavior accounted for human
+> behavior in a number of important ways, and it is still frequently
+> cited as the canonical interactive-activation model of word
+> recognition.
 
 ## Installation
 
@@ -220,7 +234,7 @@ jtrace_create_language(
   phonemes = p,
   features = f
 )
-#> v Language added at `custom`
+#> v Language added at 'C:/Users/gonza/AppData/Local/Temp/Rtmpy8Vnnl/temp_libpath47a410173253/jtracer/jtrace/languages/custom.xml'
 ```
 
 As the output says, you new language has been converted to a .jt file
