@@ -1,5 +1,4 @@
-#' Check it Java is installed
-#
+#' Check if Java is installed
 #' @export jtrace_check_java
 #' @author Gonzalo Garcia-Castro <gonzalo.garciadecastro@upf.edu>
 #' @details jTRACE requires Java 1.4 or higher. This function checks if Java installed, and if the current
