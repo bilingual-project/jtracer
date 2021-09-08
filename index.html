@@ -106,7 +106,6 @@
 </h1></div>
 <!-- badges: start -->
 
-<p>Website: <a href="https://bilingual-project.github.io/jtracer/index.html" class="uri">https://bilingual-project.github.io/jtracer/index.html</a></p>
 <p>This package provides an R interface to jTRACE, a re-implementation of the <strong>TRACE</strong> model of spoken word recognition (McClelland &amp; Elman, <a href="https://www.sciencedirect.com/science/article/pii/0010028586900150">1986</a>) created by Strauss, Harris &amp; Magnusson (<a href="https://magnuson.psy.uconn.edu/jtrace/">2007</a>). Using the functions in this package you can generate the files you need to perform simulations in jTRACE.</p>
 <div id="what-is-jtrace" class="section level2">
 <h2 class="hasAnchor">
@@ -127,7 +126,7 @@
 <div id="installing-and-launching-jtrace" class="section level2">
 <h2 class="hasAnchor">
 <a href="#installing-and-launching-jtrace" class="anchor"></a>Installing and launching jTRACE</h2>
-<p>First, you need to download jTRACE. You can do it from tthe R console running:</p>
+<p>First, you need to download jTRACE. You can do it from the R console running:</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu">jtracer</span><span class="fu">::</span><span class="fu"><a href="reference/jtrace_install.html">jtrace_install</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
 <p>This will download the jTRACE folder from <a href="https://magnuson.psy.uconn.edu/jtrace/" class="uri">https://magnuson.psy.uconn.edu/jtrace/</a>. This function will also check if a sufficiently recent version of Java is up and running (&gt;1.4). If not, it will prompt you to do it.</p>
@@ -270,7 +269,7 @@
   phonemes <span class="op">=</span> <span class="va">p</span>,
   features <span class="op">=</span> <span class="va">f</span>
 <span class="op">)</span>
-<span class="co">#&gt; v Language added at 'C:/Users/gonza/AppData/Local/Temp/Rtmpy8Vnnl/temp_libpath47a410173253/jtracer/jtrace/languages/custom.xml'</span></code></pre></div>
+<span class="co">#&gt; v Language added at 'C:/Users/gonza/AppData/Local/Temp/Rtmpgf4Pgs/temp_libpathaf4639928c5/jtracer/jtrace/languages/custom.xml'</span></code></pre></div>
 <p>As the output says, you new language has been converted to a .jt file that is noew ready to be imported in jTRACE. You can launch jTRACE from your console by running <code><a href="reference/jtrace_launch.html">jtrace_launch()</a></code>. You will find the language at “.jtrace/languages/custom.jt” (see <code>.jtrace$PATH</code> to see where the .jtrace folder is located) in your machine.</p>
 <p>You can also get your language by running:</p>
 <div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
