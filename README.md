@@ -9,6 +9,8 @@
 experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
 <!-- badges: end -->
 
+Website: https://bilingual-project.github.io/jtracer/index.html
+
 This package provides an R interface to jTRACE, a re-implementation of
 the **TRACE** model of spoken word recognition (McClelland & Elman,
 [1986](https://www.sciencedirect.com/science/article/pii/0010028586900150))
