@@ -18,9 +18,6 @@ version is recent enough for Java to run. If not, you will be pointed to the Jav
 website where you can download the most recent version of Java. After installing it, you will
 be able to install and launch jTRACE.
 }
-\examples{
-jtrace_check_java()
-}
 \references{
 Strauss, T. J., Harris, H. D., & Magnuson, J. S. (2007). jTRACE: A reimplementation and extension of the TRACE model of speech perception and spoken word recognition. Behavior Research Methods, 39(1), 19-30.
 }

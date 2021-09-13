@@ -7,6 +7,12 @@
 #' @importFrom readxl read_excel
 #' @importFrom data.table fread
 #' @importFrom janitor clean_names
+#' @references
+#' \describe{
+#'     \item{English}{Van Heuven, W. J., Mandera, P., Keuleers, E., & Brysbaert, M. (2014). SUBTLEX-UK: A new and improved word frequency database for British English. Quarterly journal of experimental psychology, 67(6), 1176-1190.}
+#'     \item{Spanish}{Cuetos, F., Glez-Nosti, M., Barbon, A., & Brysbaert, M. (2011). SUBTLEX-ESP: frecuencias de las palabras espanolas basadas en los subtitulos de las peliculas. Psicológica, 32(2), 133-144.}
+#'     \item{Catalan}{Boada, R., Guasch, M., Haro, J., Demestre, J., & Ferré, P. (2020). SUBTLEX-CAT: Subtitle word frequencies and contextual diversity for Catalan. Behavior research methods, 52(1), 360-375.}
+#' }
 import_subtlex <- function(){
   
   # english
@@ -41,10 +47,10 @@ import_subtlex <- function(){
   colnames(subtlex_cat) <- c("word", "frequency_abs", "frequency_rel", "frequency_zipf")
 
   # merge
-  frequency <- bind_rows(list(English = subtlex_eng, Spanish = subtlex_spa, Catalan = subtlex_cat), .id = "language")
-  frequency <- frequency[frequency$word %in% word, c("word", "language", "frequency_abs", "frequency_rel", "frequency_zipf")] 
-  frequency <- arrange(frequency, language, word, -frequency_zipf)
+  x <- bind_rows(list(English = subtlex_eng, Spanish = subtlex_spa, Catalan = subtlex_cat), .id = "language")
+  x <- frequency[x$word %in% word, c("word", "language", "frequency_abs", "frequency_rel", "frequency_zipf")] 
+  x <- arrange(x, language, word, -frequency_zipf)
 
-  return(frequency)
+  return(x)
   
 }

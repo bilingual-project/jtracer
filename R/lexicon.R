@@ -82,15 +82,17 @@ jtrace_create_lexicon <- function(
 #' @param language Character vector containing the language(s) to lookup the frequency of the words for. Must be one or more of "English", "Spanish, and/or "Catalan".
 #' @param scale Character vector indicating the scale(s) of the frequency scores. Must be one or more of "frequency_abs" (absolute frequency), "frequency_rel", (relative frequency, \code{counts/1e6}, default), or "frequency_zipf" (\code{log10(counts*1e6)+3})"
 #' @returns A data frame containing a column for the words and one column for the SUBTLEX frequencies in each language for the same word
-#' @references Strauss, T. J., Harris, H. D., & Magnuson, J. S. (2007). jTRACE: A reimplementation and extension of the TRACE model of speech perception and spoken word recognition. Behavior Research Methods, 39(1), 19-30.
-#'     Van Heuven, W. J., Mandera, P., Keuleers, E., & Brysbaert, M. (2014). SUBTLEX-UK: A new and improved word frequency database for British English. Quarterly journal of experimental psychology, 67(6), 1176-1190.
-#'     Cuetos, F., Glez-Nosti, M., Barbon, A., & Brysbaert, M. (2011). SUBTLEX-ESP: frecuencias de las palabras espanolas basadas en los subtitulos de las peliculas. Psicológica, 32(2), 133-144.
-#'     Boada, R., Guasch, M., Haro, J., Demestre, J., & Ferré, P. (2020). SUBTLEX-CAT: Subtitle word frequencies and contextual diversity for Catalan. Behavior research methods, 52(1), 360-375.
+#' @references
+#' \describe{
+#'     \item{English}{Van Heuven, W. J., Mandera, P., Keuleers, E., & Brysbaert, M. (2014). SUBTLEX-UK: A new and improved word frequency database for British English. Quarterly journal of experimental psychology, 67(6), 1176-1190.}
+#'     \item{Spanish}{Cuetos, F., Glez-Nosti, M., Barbon, A., & Brysbaert, M. (2011). SUBTLEX-ESP: frecuencias de las palabras espanolas basadas en los subtitulos de las peliculas. Psicológica, 32(2), 133-144.}
+#'     \item{Catalan}{Boada, R., Guasch, M., Haro, J., Demestre, J., & Ferré, P. (2020). SUBTLEX-CAT: Subtitle word frequencies and contextual diversity for Catalan. Behavior research methods, 52(1), 360-375.}
+#' }
 #' @examples 
 #' my_words <- c("plane", "cake", "tiger", "ham", "seat")
-#' jtrace_get_frequency(words = my_words, language = "English", scale = "frequency_rel")
-#' jtrace_get_frequency(words = my_words, language = c("Spanish", "Catalan"), scale = "frequency_zipf")
-#' jtrace_get_frequency(words = my_words, language = c("Spanish"), scale = "frequency_abs")
+#' jtrace_get_frequency(word = my_words, language = "English", scale = "frequency_rel")
+#' jtrace_get_frequency(word = my_words, language = c("Spanish", "Catalan"), scale = "frequency_zipf")
+#' jtrace_get_frequency(word = my_words, language = c("Spanish"), scale = "frequency_abs")
 jtrace_get_frequency <- function(
   word,
   language = "English",
@@ -100,7 +102,7 @@ jtrace_get_frequency <- function(
     if (!all(language %in% c("Spanish", "Catalan", "English"))) stop("Language must be English, Spanish, and/or Catalan")
     if (!all(scale %in% c("frequency_abs", "frequency_rel", "frequency_zipf"))) stop("Scale must be one of frequency_abs, frequency_rel, and/or frequency_zipf")
     f <- frequency[frequency$word %in% word & frequency$language %in% language, c("word", "language", scale)]
-    a <- data.frame(word = word, language = language)
+    a <- expand.grid(word = word, language = language)
     x <- left_join(a, f)
     x <- mutate_at(x, vars(starts_with("frequency_")), function(x) ifelse(is.na(x), 0, x))
   })

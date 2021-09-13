@@ -14,9 +14,6 @@ jtrace_install(overwrite = NULL, quiet = FALSE)
 \description{
 Download and install jTRACE
 }
-\examples{
-jtrace_install()
-}
 \author{
 Gonzalo Garcia-Castro \href{mailto:gonzalo.garciadecastro@upf.edu}{gonzalo.garciadecastro@upf.edu}
 }

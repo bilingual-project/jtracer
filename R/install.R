@@ -11,8 +11,6 @@
 #' @importFrom usethis ui_done
 #' @returns TRUE if Java is installed and version is 1.4 or higher, FALSE otherwise
 #' @references Strauss, T. J., Harris, H. D., & Magnuson, J. S. (2007). jTRACE: A reimplementation and extension of the TRACE model of speech perception and spoken word recognition. Behavior Research Methods, 39(1), 19-30.
-#' @examples 
-#' jtrace_check_java()
 jtrace_check_java <- function(){
   java_current_version <- system("java -version", intern = TRUE)
   if (is.null(java_current_version)) {
@@ -66,8 +64,6 @@ jtrace_is_installed <- function(check = FALSE){
 #' @importFrom usethis ui_done
 #' @param overwrite Logical value indicating whether to replace an existing jTRACE folder, in case there is
 #' @param quiet Should downloading progress not be shown?
-#' @examples
-#' jtrace_install()
 jtrace_install <- function(
   overwrite = NULL,
   quiet = FALSE

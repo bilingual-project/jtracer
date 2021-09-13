@@ -10,7 +10,7 @@ jtrace_launch()
 Launches jTRACE
 }
 \examples{
-jtrace_launch()
+\donttest{jtrace_launch()}
 }
 \references{
 Strauss, T. J., Harris, H. D., & Magnuson, J. S. (2007). jTRACE: A reimplementation and extension of the TRACE model of speech perception and spoken word recognition. Behavior Research Methods, 39(1), 19-30.
