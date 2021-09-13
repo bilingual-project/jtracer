@@ -2,16 +2,25 @@
 % Please edit documentation in R/install.R
 \name{jtrace_check_java}
 \alias{jtrace_check_java}
-\title{to be 1.4 or higher. This function checks if Java installed, and if the current
-version is recent enough for Java to run. If not, you will be pointed to the Java
-website where you can download the most recent version of Java. After installing it, you will
-be able to install and launch jTRACE.}
+\title{Check if Java is installed}
 \usage{
 jtrace_check_java()
 }
+\value{
+TRUE if Java is installed and version is 1.4 or higher, FALSE otherwise
+}
 \description{
-to be 1.4 or higher. This function checks if Java installed, and if the current
+Check if Java is installed
+}
+\details{
+jTRACE requires Java 1.4 or higher. This function checks if Java installed, and if the current
 version is recent enough for Java to run. If not, you will be pointed to the Java
 website where you can download the most recent version of Java. After installing it, you will
 be able to install and launch jTRACE.
+}
+\references{
+Strauss, T. J., Harris, H. D., & Magnuson, J. S. (2007). jTRACE: A reimplementation and extension of the TRACE model of speech perception and spoken word recognition. Behavior Research Methods, 39(1), 19-30.
+}
+\author{
+Gonzalo Garcia-Castro \href{mailto:gonzalo.garciadecastro@upf.edu}{gonzalo.garciadecastro@upf.edu}
 }

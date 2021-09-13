@@ -4,13 +4,16 @@
 \alias{jtrace_install}
 \title{Download and install jTRACE}
 \usage{
-jtrace_install(path = NULL, overwrite = NULL)
+jtrace_install(overwrite = NULL, quiet = FALSE)
 }
 \arguments{
-\item{path}{Character string indicating the path in which to install jTRACE}
-
 \item{overwrite}{Logical value indicating whether to replace an existing jTRACE folder, in case there is}
+
+\item{quiet}{Should downloading progress not be shown?}
 }
 \description{
 Download and install jTRACE
+}
+\author{
+Gonzalo Garcia-Castro \href{mailto:gonzalo.garciadecastro@upf.edu}{gonzalo.garciadecastro@upf.edu}
 }

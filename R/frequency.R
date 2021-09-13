@@ -1,0 +1,20 @@
+#' @title Lexical frequencies of all available words in SUBTLEX
+#' @description A dataset containing the absolute, relative, and Zipf-transformed frequencies of 456,546 words in Catalan, English, and Spanish.
+#' @docType data
+#' @usage data(frequency)
+#' @format A data frame with 456,546 rows and 5 variables:
+#' \describe{
+#'   \item{word}{Orthographic word form}
+#'   \item{language}{Language the word form belongs to}
+#'   \item{frequency_abs}{Abolute frequency (raw counts in the corpus)}
+#'   \item{frequency_rel}{Relative frequency (counts per million words in the corpus)}
+#'   \item{frequency_zipf}{Zipf-transformed frequency (\code{log10(frequency_rel+3)})}
+#' }
+#' @source Catalan: \url{https://link.springer.com/article/10.3758%2Fs13428-019-01233-1}, English: \url{https://journals.sagepub.com/doi/full/10.1080/17470218.2013.850521}, Spanish: \url{https://psycnet.apa.org/record/2011-19447-001}
+#' @references
+#' \describe{
+#'     \item{English}{Van Heuven, W. J., Mandera, P., Keuleers, E., & Brysbaert, M. (2014). SUBTLEX-UK: A new and improved word frequency database for British English. Quarterly journal of experimental psychology, 67(6), 1176-1190.}
+#'     \item{Spanish}{Cuetos, F., Glez-Nosti, M., Barbon, A., & Brysbaert, M. (2011). SUBTLEX-ESP: frecuencias de las palabras espanolas basadas en los subtitulos de las peliculas. Psicológica, 32(2), 133-144.}
+#'     \item{Catalan}{Boada, R., Guasch, M., Haro, J., Demestre, J., & Ferré, P. (2020). SUBTLEX-CAT: Subtitle word frequencies and contextual diversity for Catalan. Behavior research methods, 52(1), 360-375.}
+#' }
+"frequency"

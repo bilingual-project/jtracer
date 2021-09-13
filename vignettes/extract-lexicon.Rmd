@@ -1,0 +1,38 @@
+---
+title: "Extracting a lexicon"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{extract-lexicon}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+## Extracting a lexicon from jTRACE
+
+jTRACE has multiple lexica available to perform simulations. By default, it offers:
+
+* biglex_lr
+* biglex_lr_^a
+* biglex901
+* context_lex
+* empty
+* initial_lexicon
+* sevenlex
+* slex
+* slex_pairs
+
+You can import a lexicon from jTRACE as a data frame with `jtrace_get_lexicon`. For example:
+
+```{r lexicon, echo=TRUE}
+library(jtracer)
+lex <- jtrace_get_lexicon(lexicon = "slex")
+head(lex)
+```
+

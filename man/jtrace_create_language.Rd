@@ -5,22 +5,49 @@
 \title{Create jTRACE language (phonemic inventory)}
 \usage{
 jtrace_create_language(
+  phonemes = NULL,
   features,
   duration_scalar = NULL,
   allophonic_relations = NULL,
-  phonemes = NULL,
   language_name
 )
 }
 \arguments{
+\item{phonemes}{Character vector indicating the jTRACE notation of each phoneme. It must be the same length as the number of rows of the matrix or data frame introduced in \code{features}. This argument can be left NULL (default) if the matrix or data frame introduced in \code{features} has appropriate row names indicating the jTRACE notation of the phonemes.}
+
+\item{features}{A M x N matrix or data frame (where M is the number of phonemes and N is 7, the number of features) that contains the values of the features (columns) for each phoneme (rows) with a score ranging from 0 to 9.}
+
 \item{duration_scalar}{Matrix or data frame indicating the values of the duration scalar, with each phoneme as a row and each feature as a column. If NULL (default), all duration values are set to 1.}
 
 \item{allophonic_relations}{Array or data frame with logical values indicating whether each combination of phonemes is an allophone, with phonemes are rows and columns. If NULL (default), no allophonic relations are specified.}
-
-\item{phonemes}{Character vector indicating the jTRACE notation of each phoneme. It must be the same length as the number of rows of the matrix or data frame introduced in \code{features}. This argument can be left NULL (default) if the matrix or data frame introduced in \code{features} has appropriate row names indicating the jTRACE notation of the phonemes.}
 
 \item{language_name}{Name of the language that will be created.}
 }
 \description{
 Create jTRACE language (phonemic inventory)
+}
+\examples{
+# first, we create a character vector with the phoneme symbols
+p <- c("-", "a", "s", "d", "f", "g", "c") 
+# then we create a the features matrix
+f <- data.frame(
+    bur = c(9, 6, 4, 3, 1, 1, 2),
+    voi = c(7, 4, 3, 3, 3, 3, 4),
+    con = c(8, 2, 4, 2, 5, 5, 6),
+    grd = c(4, 6, 1, 4, 6, 8, 6),
+    dif = c(6, 3, 2, 6, 6, 6, 7),
+    voc = c(3, 8, 1, 6, 6, 7, 4),
+    pow = c(6, 4, 1, 6, 1, 1, 5)
+)
+# now we create the language
+jtrace_create_language(language_name = "my_language", phonemes = p, features = f)
+}
+\references{
+Strauss, T. J., Harris, H. D., & Magnuson, J. S. (2007). jTRACE: A reimplementation and extension of the TRACE model of speech perception and spoken word recognition. Behavior Research Methods, 39(1), 19-30.
+}
+\seealso{
+\code{\link{jtrace_list_languages}} for listing available languages, and \code{\link{jtrace_get_language}} for importing a language.
+}
+\author{
+Gonzalo Garcia-Castro \href{mailto:gonzalo.garciadecastro@upf.edu}{gonzalo.garciadecastro@upf.edu}
 }
