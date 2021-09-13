@@ -21,7 +21,7 @@ jtrace_get_language <- function(
       paste0(c, collapse = ", "))
     )
   }
-  if(length(language_name) > 1) stop("Please, specify just one lexicon")
+  if(length(language_name) > 1) stop("Please, specify just one language name")
   language_list <- paste0(language_dir, "/", language_name, ".jt") %>%
     readLines(warn = FALSE) %>% 
     paste0(collapse = "") %>%
