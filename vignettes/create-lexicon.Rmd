@@ -23,10 +23,10 @@ The `jtrace_create_lexicon`function generates a new lexicon ready to be loaded t
 
 ## Extracting lexical frequencies
 
-Since lexical frequencies are required to run a simulation, you must do so before creating your custom lexicon. You can extract the absolute, relative, or Zipf-transformed lexical frequencies of the words using the `jtrace_get_frequency` (see example below). You can consult the built-in dataset `frequencies` (see `?frequency`) to see the complete list of frequencies available (extracted from the SUBTLEX-UK, SUBTLEX-ESP, and SUBTLEX-CAT databases):
+Since lexical frequencies are required to run a simulation, you must do so before creating your custom lexicon. You can extract the absolute, relative, or Zipf-transformed lexical frequencies of the words using the `jtrace_get_frequency` (see example below). You can consult the built-in dataset `frequencies` (see `?frequencies`) to see the complete list of frequencies available (extracted from the SUBTLEX-UK, SUBTLEX-ESP, and SUBTLEX-CAT databases):
 
 ```{r frequencies_dataset, echo = TRUE}
-  head(frequency)
+head(frequencies)
 ```
 
 
@@ -38,7 +38,7 @@ my_words <- c("plane", "cake", "tiger", "ham", "seat")
 my_freqs <- jtrace_get_frequency(
   word = my_words,
   language = "English",
-  scale = c("frequency_rel", "frequency_zipf")
+  scale = c("frequency_abs", "frequency_zipf")
 )
 head(my_freqs)
 ```
@@ -51,7 +51,7 @@ Now we can create a new lexicon, which we will call "custom":
 my_phons <- c("plEIn", "kEIk", "taIɡ@", "ham", "sit")
 jtrace_create_lexicon(
   phonology = my_phons,
-  frequency = my_freqs,
+  frequency = my_freqs$frequency_abs,
   lexicon_name = "my_lex"
 )
 ```

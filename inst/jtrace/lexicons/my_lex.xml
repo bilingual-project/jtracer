@@ -2,9 +2,9 @@
 <lexicon xmlns='http://xml.netbeans.org/examples/targetNS'
 xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'
 xsi:schemaLocation='http://xml.netbeans.org/examples/targetNS file:/Ted/develop/cvs/sswr/code/WebTrace/Schema/WebTraceSchema.xsd'>
-<lexeme><phonology>plEIn</phonology><frequency>0.0483</frequency></lexeme>
-<lexeme><phonology>kEIk</phonology><frequency>0.0804</frequency></lexeme>
-<lexeme><phonology>taIÃƒâ€°Ã‚Â¡@</phonology><frequency>0.0288</frequency></lexeme>
-<lexeme><phonology>ham</phonology><frequency>0.0282</frequency></lexeme>
-<lexeme><phonology>sit</phonology><frequency>0.0767</frequency></lexeme>
+<lexeme><phonology>plEIn</phonology><frequency>7734</frequency></lexeme>
+<lexeme><phonology>kEIk</phonology><frequency>12872</frequency></lexeme>
+<lexeme><phonology>taIg@</phonology><frequency>4601</frequency></lexeme>
+<lexeme><phonology>ham</phonology><frequency>4516</frequency></lexeme>
+<lexeme><phonology>sit</phonology><frequency>12276</frequency></lexeme>
 </lexicon>

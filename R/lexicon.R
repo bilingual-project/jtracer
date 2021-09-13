@@ -90,18 +90,19 @@ jtrace_create_lexicon <- function(
 #' }
 #' @examples 
 #' my_words <- c("plane", "cake", "tiger", "ham", "seat")
-#' jtrace_get_frequency(word = my_words, language = "English", scale = "frequency_rel")
+#' jtrace_get_frequency(word = my_words, language = "English", scale = "frequency_abs")
 #' jtrace_get_frequency(word = my_words, language = c("Spanish", "Catalan"), scale = "frequency_zipf")
-#' jtrace_get_frequency(word = my_words, language = c("Spanish"), scale = "frequency_abs")
+#' jtrace_get_frequency(word = my_words, language = c("Spanish"), scale = "frequency_rel")
 jtrace_get_frequency <- function(
   word,
   language = "English",
-  scale = "frequency_rel"
+  scale = "frequency_abs"
 ){
+  data("frequencies")
   suppressMessages({
     if (!all(language %in% c("Spanish", "Catalan", "English"))) stop("Language must be English, Spanish, and/or Catalan")
     if (!all(scale %in% c("frequency_abs", "frequency_rel", "frequency_zipf"))) stop("Scale must be one of frequency_abs, frequency_rel, and/or frequency_zipf")
-    f <- frequency[frequency$word %in% word & frequency$language %in% language, c("word", "language", scale)]
+    f <- frequencies[frequencies$word %in% word & frequency$language %in% language, c("word", "language", scale)]
     a <- expand.grid(word = word, language = language)
     x <- left_join(a, f)
     x <- mutate_at(x, vars(starts_with("frequency_")), function(x) ifelse(is.na(x), 0, x))

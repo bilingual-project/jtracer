@@ -45,12 +45,12 @@ import_subtlex <- function(){
   subtlex_cat <- clean_names(read_excel(tf, .name_repair = "check_unique"))
   subtlex_cat <- subtlex_cat[, c("words", "abs_wf", "abs_wf", "zipf")]
   colnames(subtlex_cat) <- c("word", "frequency_abs", "frequency_rel", "frequency_zipf")
-
+  
   # merge
   x <- bind_rows(list(English = subtlex_eng, Spanish = subtlex_spa, Catalan = subtlex_cat), .id = "language")
   x <- frequency[x$word %in% word, c("word", "language", "frequency_abs", "frequency_rel", "frequency_zipf")] 
   x <- arrange(x, language, word, -frequency_zipf)
-
+  
   return(x)
   
 }

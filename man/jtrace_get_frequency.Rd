@@ -4,7 +4,7 @@
 \alias{jtrace_get_frequency}
 \title{Extract lexical frequencies}
 \usage{
-jtrace_get_frequency(word, language = "English", scale = "frequency_rel")
+jtrace_get_frequency(word, language = "English", scale = "frequency_abs")
 }
 \arguments{
 \item{word}{Character vector with the orthographic word form}
@@ -21,9 +21,9 @@ Extract lexical frequencies
 }
 \examples{
 my_words <- c("plane", "cake", "tiger", "ham", "seat")
-jtrace_get_frequency(word = my_words, language = "English", scale = "frequency_rel")
+jtrace_get_frequency(word = my_words, language = "English", scale = "frequency_abs")
 jtrace_get_frequency(word = my_words, language = c("Spanish", "Catalan"), scale = "frequency_zipf")
-jtrace_get_frequency(word = my_words, language = c("Spanish"), scale = "frequency_abs")
+jtrace_get_frequency(word = my_words, language = c("Spanish"), scale = "frequency_rel")
 }
 \references{
 \describe{

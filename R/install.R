@@ -140,14 +140,40 @@ jtrace_install <- function(
       )
     }
     
-    file.copy(
-      from = system.file("languages", "default.xml", package = "jtracer"),
-      to = file.path(system.file("jtrace", "languages", package = "jtracer"), "default.xml"),
-      overwrite = TRUE
-    )
+    # move custom languages
+    custom_languages <- list.files(file.path(system.file("languages", package = "jtracer")))
+    for (i in custom_languages){
+      file.copy(
+        from = system.file("languages", i, package = "jtracer"),
+        to = file.path(system.file("jtrace", "languages", package = "jtracer"), i),
+        overwrite = TRUE
+      )
+    }
+    # move custom lexicons
+    custom_lexicons <- list.files(file.path(system.file("lexicons", package = "jtracer")))
+    for (i in custom_lexicons){
+      file.copy(
+        from = system.file("lexicons", i, package = "jtracer"),
+        to = file.path(system.file("jtrace", "lexicons", package = "jtracer"), i),
+        overwrite = TRUE
+      )
+    }
     
     ui_done("Installed sucessfully")
   }
   
 }
 
+
+#' Launches jTRACE
+#' @export jtrace_launch
+#' @author Gonzalo Garcia-Castro <gonzalo.garciadecastro@upf.edu>
+#' @references Strauss, T. J., Harris, H. D., & Magnuson, J. S. (2007). jTRACE: A reimplementation and extension of the TRACE model of speech perception and spoken word recognition. Behavior Research Methods, 39(1), 19-30.
+#' @examples
+#' \donttest{jtrace_launch()}
+jtrace_launch <- function(){
+  jtrace_check_java()
+  jtrace_is_installed(check = TRUE)
+  command <- paste0("java -jar ", system.file("jtrace", "jtrace.jar", package = "jtracer", mustWork = TRUE))
+  system(command, show.output.on.console = FALSE)
+}
