@@ -54,3 +54,8 @@ import_subtlex <- function(){
   return(x)
   
 }
+
+export_phonemes <- function(...){
+  data("phonemes")
+  write.table(phonemes, ..., row.names = FALSE)
+}

@@ -34,8 +34,8 @@ Suggests:
     rmarkdown
 Config/testthat/edition: 3
 Language: en-US
-URL: https://bilingual-project.github.io/jtracer/
-BugReports: https://github.com/bilingual-project/jtracer/issues
+URL: https://gongcastro.github.io/jtracer/
+BugReports: https://github.com/gongcastro/jtracer/issues
 Depends: 
     R (>= 2.10)
 VignetteBuilder: knitr

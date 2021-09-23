@@ -1,0 +1,75 @@
+id,ipa,approximation,sampa,celex,trace,description,type
+1,p,p,p,p,p,voiceless bilabial plosive,Consonant
+2,b,b,b,b,b,voiced bilabial plosive,Consonant
+3,t,t,t,t,t,voiceless alveolar plosive,Consonant
+4,d,d,d,d,d,voiced alveolar plosive,Consonant
+5,ts,T,ts,,T,voiceless alveolar affricate,Consonant
+6,dz,d,dz,,d,voiced alveolar affricate,Consonant
+7,t<U+0283>,T,tS,tS,T,voiceless postalveolar affricate,Consonant
+8,d<U+0292>,d<U+0292>,dZ,dZ,H,voiced postalveolar affricate,Consonant
+9,c,c,c,,k,voiceless palatal plosive,Consonant
+10,<U+025F>,ß,J\,,B,voiced palatal plosive,Consonant
+11,k,k,k,k,k,voiceless velar plosive,Consonant
+12,g,g,g,g,g,voiced velar plosive,Consonant
+13,q,q,q,,q,voiceless uvular plosive,Consonant
+14,<U+0278>,ß,p\,,B,voiceless bilabial fricative,Consonant
+15,ß,ß,B,,B,voiced bilabial fricative,Consonant
+16,f,f,f,f,f,voiceless labiodental fricative,Consonant
+17,v,v,v,,v,voiced labiodental fricative,Consonant
+18,<U+03B8>,<U+03B8>,T,T,T,voiceless dental fricative,Consonant
+19,ð,ð,D,D,D,voiced dental fricative,Consonant
+20,s,s,s,s,s,voiceless alveolar fricative,Consonant
+21,z,z,z,z,z,voiced alveolar fricative,Consonant
+22,<U+0283>,<U+0283>,S,S,S,voiceless postalveolar fricative,Consonant
+23,<U+0292>,<U+0292>,Z,Z,M,voiced postalveolar fricative,Consonant
+24,ç,<U+0292>,C,,M,voiceless palatal fricative,Consonant
+25,<U+029D>,j,j\,j,j,voiced palatal fricative,Consonant
+26,x,x,x,x,x,voiceless velar fricative,Consonant
+27,<U+0263>,<U+0263>,G,,G,voiced velar fricative,Consonant
+28,<U+0270>,<U+0263>,F,,G,voiced velar approximant,Consonant
+29,h,h,X\,,h,voiceless pharyngeal fricative,Consonant
+30,<U+0295>,<U+0295>,?\,,/,voiced pharyngeal fricative,Consonant
+31,h,h,h,h,h,voiceless glottal fricative,Consonant
+32,<U+0266>,h,h\,,h,voiced glottal fricative,Consonant
+33,m,m,m,m,m,voiced bilabial nasal,Consonant
+34,<U+0271>,m,F,,m,voiced labiodental nasal,Consonant
+35,n,n,n,n,n,voiced alveolar nasal,Consonant
+36,<U+0272>,<U+0272>,J,,J,voiced palatal nasal,Consonant
+37,<U+014B>,n,N,N,n,voiced velar nasal,Consonant
+38,l,l,l,l,l,voiced alveolar lateral approximant,Consonant
+39,<U+028E>,<U+028E>,L,,L,voiced palatal lateral approximant,Consonant
+40,<U+026B>,l,5,,l,voiced velarized dental lateral,Consonant
+41,<U+027E>,<U+0279>,4,,r,voiced alveolar tap,Consonant
+42,r,r,r,r,4,voiced alveolar trill,Consonant
+43,<U+0279>,<U+0279>,r\,,r,voiced alveolar approximant,Consonant
+44,<U+0280>,r,R,,R,roived uvular trill,Consonant
+45,<U+028B>,v,P,v,v,voiced labiodental approximant,Consonant
+46,w,w,w,w,w,voiced labial-velar approximant,Consonant
+47,<U+0265>,w,H,,w,voiced labial-palatal approximant,Consonant
+48,j,j,j,,j,voiced palatal approximant,Consonant
+49,i,i,i,,i,close front unrounded vowel,Vowel
+50,<U+026A>,<U+026A>,I,I,l,near-close front unrounded vowel,Vowel
+51,e,e,e,,e,close-mid front unrounded vowel,Vowel
+52,<U+025B>,<U+025B>,E,E,E,open-mid front unrounded vowel,Vowel
+53,æ,æ,{,&,{,near-open front unrounded vowel,Vowel
+54,y,y,y,,y,close front rounded vowel,Vowel
+55,<U+028F>,<U+028F>,Y,,Y,near-close front rounded vowel,Vowel
+56,ø,ø,2,,2,close-mid front rounded vowel,Vowel
+57,œ,œ,9,,9,open-mid front rounded vowel,Vowel
+58,<U+0268>,<U+0268>,1,,1,close central unrounded vowel,Vowel
+59,<U+0259>,<U+0259>,@,0,@,mid central vowel,Vowel
+60,<U+0250>,<U+0250>,6,,6,near-open central unrounded vowel,Vowel
+61,<U+025C>,<U+025C>,3,,3,open-mid central unrounded vowel,Vowel
+62,a,a,a,,a,open central unrounded vowel,Vowel
+63,<U+0289>,<U+0289>,},,},close central rounded vowel,Vowel
+64,<U+0275>,<U+0275>,8,,8,close-mid central rounded vowel,Vowel
+65,<U+0276>,<U+0276>,&,,&,open front rounded vowel,Vowel
+66,<U+026F>,<U+026F>,M,,M,close back unrounded vowel,Vowel
+67,<U+0264>,<U+0264>,7,,7,close-mid back unrounded vowel,Vowel
+68,<U+028C>,<U+028C>,V,V,V,open-mid back unrounded vowel,Vowel
+69,<U+0251>,<U+0251>,A,,A,open back unrounded vowel,Vowel
+70,u,u,u,,u,close back rounded vowel,Vowel
+71,<U+028A>,<U+028A>,U,U,U,near-close back rounded vowel,Vowel
+72,o,o,o,,u,close-mid back rounded vowel,Vowel
+73,<U+0254>,<U+0254>,O,,L,open-mid back rounded vowel,Vowel
+74,<U+0252>,<U+0252>,Q,O,Q,open back rounded vowel,Vowel
