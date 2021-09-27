@@ -8,6 +8,8 @@
 [![Lifecycle:
 experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
 [![R-CMD-check](https://github.com/bilingual-project/jtracer/workflows/R-CMD-check/badge.svg)](https://github.com/bilingual-project/jtracer/actions)
+[![CircleCI build
+status](https://circleci.com/gh/bilingual-project/jtracer.svg?style=svg)](https://circleci.com/gh/bilingual-project/jtracer)
 <!-- badges: end -->
 
 This package provides an R interface to jTRACE, a re-implementation of
@@ -186,7 +188,7 @@ and run simulations with.
 
 The `jtrace_create_language` takes, at least, a character value
 indicating the name you want to give your new language, a vector or
-phonemes (in jTRACE notation)ñ of length M, and a M x 7 matrix or data
+phonemes (in jTRACE notation) of length M, and a M x 7 matrix or data
 frame with the scores (0-9) of each phoneme (rows) in each of the
 feature dimensions (columns). If the feature data frame includes row
 names with valid phoneme symbols, you can omit the `phonemes` argument.
@@ -234,7 +236,7 @@ jtrace_create_language(
   phonemes = p,
   features = f
 )
-#> v Language added at 'C:/Users/gonza/AppData/Local/Temp/Rtmpgf4Pgs/temp_libpathaf4639928c5/jtracer/jtrace/languages/custom.xml'
+#> v Language added at 'C:/Users/u155880/AppData/Local/Temp/RtmpqcaaTF/temp_libpath433c7aa37236/jtracer/jtrace/languages/custom.xml'
 ```
 
 As the output says, you new language has been converted to a .jt file

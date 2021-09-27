@@ -1,0 +1,78 @@
+home:
+  title: An R interface to jTRACE
+  description: R helper functions to generate files to run simulations in jTRACE.
+  links:
+  - text: jTRACE website
+    href: https://magnuson.psy.uconn.edu/jtrace/
+    
+template:
+  opengraph:
+    twitter:
+      creator: "@gongcastro"
+      site: "@cbcUPF"
+      card: summary_large_image
+
+navbar:
+  structure:
+    left:
+    - home
+    - intro
+    - reference
+    - articles
+    - tutorials
+    - news
+    right: github
+  components:
+    home:
+      icon: fas fa-home fa-lg
+      href: index.html
+    reference:
+      text: Reference
+      href: reference/index.html
+    news:
+      text: Changelog
+      href: news/index.html
+    github:
+      icon: fab fa-github fa-lg
+      href: https://github.com/gongcastro/jtracer/
+    articles:
+      text: Articles
+      menu:
+      - text: Creating a language (phoneme inventory)
+        href: articles/create-language.html
+      - text: Creating a lexicon
+        href: articles/create-lexicon.html
+      - text: Extracting a language
+        href: articles/extract-language.html
+      - text: Extracting a lexicon
+        href: articles/extract-lexicon.html
+      - text: Launching jTRACE from the R console
+        href: articles/launching-jtrace.html
+        
+articles:
+- title: All vignettes
+  desc: ~
+  contents:
+  - '`create-language`'
+  - '`create-lexicon`'
+  - '`extract-language`'
+  - '`extract-lexicon`'
+
+reference:
+- title: All functions
+  contents:
+  - '`frequencies`'
+  - '`ipa_to_jtrace`'
+  - '`jtrace_check_java`'
+  - '`jtrace_create_language`'
+  - '`jtrace_create_lexicon`'
+  - '`jtrace_get_frequency`'
+  - '`jtrace_get_language`'
+  - '`jtrace_get_lexicon`'
+  - '`jtrace_install`'
+  - '`jtrace_is_installed`'
+  - '`jtrace_launch`'
+  - '`jtrace_list_languages`'
+  - '`jtrace_list_lexicons`'
+  - '`phonemes`'
+  

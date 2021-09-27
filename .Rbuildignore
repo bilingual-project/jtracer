@@ -14,3 +14,6 @@
 ^.github$          # Contributing guidelines, CoC, issue templates, etc.
 ^.*\.Rproj$
 ^\.Rproj\.user$
+^\.github$
+^\.circleci$
+^\.circleci/config\.yml$
