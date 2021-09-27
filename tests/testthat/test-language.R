@@ -22,5 +22,5 @@ test_that("a new language can be created and found", {
       )
     jtrace_create_language(language_name = "my_lang", phonemes = my_phonemes, features = my_features)
   }, NA)
-  expect_true("my_lang" %in% jtrace_list_languages())
+  expect_error(jtrace_get_language("my_lang"), NA)
 })

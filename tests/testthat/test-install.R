@@ -1,6 +1,6 @@
-# test_that("jtrace can be installed", {
-#   expect_true(jtrace_check_java())
-#   expect_true(jtrace_is_installed())
-#   expect_error(jtrace_install(overwrite = FALSE), NA)
-# })
+test_that("jtrace can be installed", {
+  expect_error(jtrace_check_java(), NA)
+  expect_error(jtrace_is_installed(), NA)
+  expect_error(jtrace_install(overwrite = TRUE, quiet = TRUE), NA)
+})
 

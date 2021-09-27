@@ -5,11 +5,11 @@ test_that("there are lexicons available", {
 test_that("frequencies can be extracted", {
   expect_true(class(jtrace_get_frequency("plane"))=="data.frame")
   expect_true(all(sapply(jtrace_get_frequency("plane"), class)==c("character", "character", "numeric")))
-  expect_named(jtrace_get_frequency("plane"), c("word", "language", "frequency_rel"))
+  expect_named(jtrace_get_frequency("plane"), c("word", "language", "frequency_abs"))
   expect_named(jtrace_get_frequency("plane", scale = "frequency_abs"), c("word", "language", "frequency_abs"))
   expect_named(jtrace_get_frequency("plane", scale = "frequency_rel"), c("word", "language", "frequency_rel"))
   expect_named(jtrace_get_frequency("plane", scale = "frequency_zipf"), c("word", "language", "frequency_zipf"))
-  expect_named(jtrace_get_frequency("plane", language = c("Spanish", "English")), c("word", "language", "frequency_rel"))
+  expect_named(jtrace_get_frequency("plane", language = c("Spanish", "English")), c("word", "language", "frequency_abs"))
   expect_true(nrow(jtrace_get_frequency("plane", language = c("Spanish", "English")))==2)
   expect_true(nrow(jtrace_get_frequency("plane", language = c("Spanish", "English", "Catalan")))==3)
 })
