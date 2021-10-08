@@ -32,5 +32,4 @@ test_that("a new lexicon can be created and found", {
     my_freqs <- c(0.0483, 0.0804, 0.0288, 0.0282, 0.0767)
     jtrace_create_lexicon(phonology = my_phons, frequency = my_freqs, lexicon_name = "my_lex")
   }, NA)
-  expect_true("my_lex" %in% jtrace_list_lexicons())
 })

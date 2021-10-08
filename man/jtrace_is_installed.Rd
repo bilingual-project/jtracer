@@ -4,10 +4,7 @@
 \alias{jtrace_is_installed}
 \title{Check if jTRACE is installed}
 \usage{
-jtrace_is_installed(check = FALSE)
-}
-\arguments{
-\item{check}{Should jTRACE installation be prompted if FALSE?}
+jtrace_is_installed()
 }
 \value{
 A logical values indicating whether jTRACE has been already installed

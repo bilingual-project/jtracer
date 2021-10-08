@@ -14,21 +14,13 @@
 jtrace_check_java <- function(){
   java_current_version <- system("java -version", intern = TRUE)
   if (is.null(java_current_version)) {
-    install <- ui_oops(paste0("Java is not installed. You can download it here: ", ui_path("www.java.com")))
+    is_valid <- FALSE
   } else {
     java_version <- as.numeric(substr(regmatches(
       java_current_version[1],
       regexpr("[0-9].*", java_current_version[1])), 1, 3)
     )
     is_valid <- java_version > 1.4
-    if (!is_valid){
-      install <- ui_oops(
-        paste0(
-          "Your Java version (", java_version, ") is too old (must be > 1.4).",
-          " You can download a more recent version here: ", ui_path("www.java.com")
-        )
-      )
-    }
   }
   return(is_valid)
 }
@@ -38,21 +30,11 @@ jtrace_check_java <- function(){
 #' @export jtrace_is_installed
 #' @author Gonzalo Garcia-Castro <gonzalo.garciadecastro@upf.edu>
 #' @details jTRACe website: \code{https://magnuson.psy.uconn.edu/jtrace/}
-#' @importFrom usethis ui_line
-#' @importFrom usethis ui_yeah
-#' @importFrom usethis ui_done
-#' @param check Should jTRACE installation be prompted if FALSE?
 #' @returns A logical values indicating whether jTRACE has been already installed
 #' @examples 
 #' jtrace_is_installed()
-jtrace_is_installed <- function(check = FALSE){
+jtrace_is_installed <- function(){
   exists <- dir.exists(system.file("jtrace", package = "jtracer"))
-  if (check && !exists){
-    install <- ui_yeah("jTRACE is not installed. Do you want to install jTRACE?")
-    if (install){
-      jtrace_install(overwrite = TRUE)
-    }
-  }
   return(exists)
 }
 
@@ -60,8 +42,6 @@ jtrace_is_installed <- function(check = FALSE){
 #' Download and install jTRACE
 #' @export jtrace_install
 #' @author Gonzalo Garcia-Castro <gonzalo.garciadecastro@upf.edu>
-#' @importFrom usethis ui_yeah
-#' @importFrom usethis ui_done
 #' @param overwrite Logical value indicating whether to replace an existing jTRACE folder, in case there is
 #' @param quiet Should downloading progress not be shown?
 jtrace_install <- function(
@@ -82,7 +62,6 @@ jtrace_install <- function(
       install <- overwrite
       if (install){
         unlink(path, recursive = TRUE, force = TRUE)
-        ui_done("Removed previous jTRACE folder")
       } 
     } else if (!overwrite){
       install <- FALSE
@@ -96,18 +75,11 @@ jtrace_install <- function(
   # download and unzip
   if (install){
     temp_path <- paste0(tempfile(), ".zip")
-    ui_line(
-      paste0(
-        "Downloading jTRACE from ",
-        ui_path("http://magnuson.psy.uconn.edu/wp-content/uploads/sites/1140/2015/01/jtrace-a64.zip")
-      )
-    )
     download.file(
       url = "http://magnuson.psy.uconn.edu/wp-content/uploads/sites/1140/2015/01/jtrace-a64.zip",
       destfile = temp_path, 
       quiet = quiet
     )
-    ui_done("Downloaded successfully")
     unzip(zipfile = temp_path, exdir = path, overwrite = TRUE)
     mid_dir <- list.dirs(path, full.names = TRUE, recursive = FALSE)
     internal_files <- list.files(mid_dir, include.dirs = TRUE, full.names = TRUE, recursive = TRUE)
@@ -158,10 +130,7 @@ jtrace_install <- function(
         overwrite = TRUE
       )
     }
-    
-    ui_done("Installed sucessfully")
   }
-  
 }
 
 
@@ -172,8 +141,11 @@ jtrace_install <- function(
 #' @examples
 #' \donttest{jtrace_launch()}
 jtrace_launch <- function(){
-  jtrace_check_java()
-  jtrace_is_installed(check = TRUE)
+  is_installed_java <- jtrace_check_java()
+  if (!is_installed_java) stop("Java is not installed or need to be upgraded")  
+  
+  is_installed <- jtrace_is_installed()
+  if (!is_installed) stop("jTRACE is not installed, please run jtrace_install()")
   command <- paste0("java -jar ", system.file("jtrace", "jtrace.jar", package = "jtracer", mustWork = TRUE))
   system(command, show.output.on.console = FALSE)
 }

@@ -18,10 +18,13 @@ A data frame with 456,546 rows and 5 variables:
 Catalan: \url{https://link.springer.com/article/10.3758\%2Fs13428-019-01233-1}, English: \url{https://journals.sagepub.com/doi/full/10.1080/17470218.2013.850521}, Spanish: \url{https://psycnet.apa.org/record/2011-19447-001}
 }
 \usage{
-data(frequency)
+data("frequencies")
 }
 \description{
 A dataset containing the absolute, relative, and Zipf-transformed frequencies of 456,546 words in Catalan, English, and Spanish.
+}
+\examples{
+data("frequencies")
 }
 \references{
 \describe{

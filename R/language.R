@@ -6,9 +6,13 @@
 #' @seealso \code{\link{jtrace_get_language}} for importing a language, and \code{\link{jtrace_create_language}} for creating a new language.
 #' @references Strauss, T. J., Harris, H. D., & Magnuson, J. S. (2007). jTRACE: A reimplementation and extension of the TRACE model of speech perception and spoken word recognition. Behavior Research Methods, 39(1), 19-30.
 #' @examples
+#' \dontrun{
 #' jtrace_list_languages()
+#' }
 jtrace_list_languages <- function(){
-  jtrace_is_installed(check = TRUE)
+  is_installed <- jtrace_is_installed()
+  if (!is_installed) stop("jTRACE is not installed, please run jtrace_install()")
+  
   dir_path <- file.path(system.file("jtrace", package = "jtracer", mustWork = TRUE), "languages")
   x <- gsub(".xml", "", list.files(dir_path, pattern = ".xml"))
   return(x)
@@ -23,7 +27,6 @@ jtrace_list_languages <- function(){
 #' @importFrom utils unzip
 #' @importFrom XML xmlToDataFrame
 #' @importFrom stringr str_extract
-#' @importFrom usethis ui_path
 #' @seealso \code{\link{jtrace_list_languages}} for listing available languages, and \code{\link{jtrace_create_language}} for creating a new language.
 #' @references Strauss, T. J., Harris, H. D., & Magnuson, J. S. (2007). jTRACE: A reimplementation and extension of the TRACE model of speech perception and spoken word recognition. Behavior Research Methods, 39(1), 19-30.
 #' @param language_name Character vector of length 1 indicating the jTRACE language to import. Defaults to "default".
@@ -33,11 +36,14 @@ jtrace_list_languages <- function(){
 #'  implemented in jTRACE (\code{duration_scalar}), and a data frame containing the
 #'  allophonic relations between the phonemes (\code{allophonic_relations}).
 #'  @examples 
+#'  \dontrun{
 #'  jtrace_get_language("default")
+#'  }
 jtrace_get_language <- function(
   language_name = "default"
 ){
-  jtrace_is_installed(check = TRUE)
+  is_installed <- jtrace_is_installed()
+  if (!is_installed) stop("jTRACE is not installed, please run jtrace_install()")
   
   suppressWarnings({
     
@@ -121,8 +127,6 @@ jtrace_get_language <- function(
 #' @author Gonzalo Garcia-Castro <gonzalo.garciadecastro@upf.edu>
 #' @importFrom tidyr pivot_longer
 #' @importFrom tidyr pivot_wider
-#' @importFrom usethis ui_done
-#' @importFrom usethis ui_code
 #' @seealso \code{\link{jtrace_list_languages}} for listing available languages, and \code{\link{jtrace_get_language}} for importing a language.
 #' @references Strauss, T. J., Harris, H. D., & Magnuson, J. S. (2007). jTRACE: A reimplementation and extension of the TRACE model of speech perception and spoken word recognition. Behavior Research Methods, 39(1), 19-30.
 #' @param phonemes Character vector indicating the jTRACE notation of each phoneme. It must be the same length as the number of rows of the matrix or data frame introduced in \code{features}. This argument can be left NULL (default) if the matrix or data frame introduced in \code{features} has appropriate row names indicating the jTRACE notation of the phonemes.
@@ -131,6 +135,7 @@ jtrace_get_language <- function(
 #' @param allophonic_relations Array or data frame with logical values indicating whether each combination of phonemes is an allophone, with phonemes are rows and columns. If NULL (default), no allophonic relations are specified.
 #' @param language_name Name of the language that will be created.
 #' @examples 
+#' \dontrun{
 #' # first, we create a character vector with the phoneme symbols
 #' p <- c("-", "a", "s", "d", "f", "g", "c") 
 #' # then we create a the features matrix
@@ -145,6 +150,7 @@ jtrace_get_language <- function(
 #' )
 #' # now we create the language
 #' jtrace_create_language(language_name = "my_language", phonemes = p, features = f)
+#' }
 jtrace_create_language <- function(
   phonemes = NULL,
   features,
@@ -152,7 +158,9 @@ jtrace_create_language <- function(
   allophonic_relations = NULL,
   language_name
 ){
-  jtrace_is_installed(check = TRUE)
+  is_installed <- jtrace_is_installed()
+  if (!is_installed) stop("jTRACE is not installed, please run jtrace_install()")
+  
   # check params
   if (is.null(language_name)) language_name <- readline()
   if (is.null(duration_scalar)) duration_scalar <- matrix(1, nrow = nrow(features), ncol = 7)
@@ -218,14 +226,13 @@ jtrace_create_language <- function(
   # output path
   output_path <- paste0(system.file("jtrace", "languages", package = "jtracer", mustWork = TRUE), .Platform$file.sep, language_name, ".xml")
   writeLines(text = paste0(x, collapse = ""), con = output_path)
-  ui_done(paste0("Language added at ", ui_path(output_path)))
-  
 }
 
 
 #' Transcribe phonology from IPA to jTRACE notation
 #' @export ipa_to_jtrace
 #' @importFrom mgsub mgsub
+#' @importFrom utils data
 #' @param x A character vector with the phonological forms to be transcribed
 #' @param keep_other Should symbols other than phonemes be kept in the
 #' transcriptions? Defaults to FALSE
@@ -241,14 +248,19 @@ ipa_to_jtrace <- function(
   x,
   keep_other = FALSE
 ){
-  data(phonemes)
-  if (!keep_other) x <- gsub("͡| |\\.|ˈ|'|\\\\|/", "", x)
+  
+  # to avoid issues with bindings in CMD CHECK
+  .new_env <- new.env(parent = emptyenv())
+  data("phonemes", envir = .new_env)
+  phonemes <- .new_env[["phonemes"]]
+  
+  if (!keep_other) x <- gsub("<U+0361>| |\\.|<U+02C8>|'|\\\\|/", "", x)
   x <- lapply(
     as.list(x),
     function(y){
       y_split <- unlist(strsplit(y, split = ""))
-      if (any(grepl(":|ː", y))){
-        y_split[grep(":|ː", y_split)] <- y_split[grep(":|ː", y_split)-1]
+      if (any(grepl(":|<U+0306>", y))){
+        y_split[grep(":|<U+0306>", y_split)] <- y_split[grep(":|<U+0306>", y_split)-1]
       }
       y_collapsed <- paste0(y_split, collapse = "")
       y_collapsed <- mgsub(y_collapsed, phonemes$ipa, phonemes$trace)

@@ -18,13 +18,16 @@ A data frame with 74 rows and 7 variables:
 }
 \usage{
 data(phonemes)
+
+data("phonemes")
 }
 \description{
 A dataset containing an extensive set of phonemes that can be transcribed from IPA or SAMPA to jTRACE notation using approximations.
 }
+\examples{
+data("phonemes")
+}
 \references{
-
-
 Strauss, T. J., Harris, H. D., & Magnuson, J. S. (2007). jTRACE: A reimplementation and extension of the TRACE model of speech perception and spoken word recognition. Behavior Research Methods, 39(1), 19-30.
 }
 \keyword{datasets}

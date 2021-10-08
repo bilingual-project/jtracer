@@ -7,6 +7,7 @@
 #' @importFrom readxl read_excel
 #' @importFrom data.table fread
 #' @importFrom janitor clean_names
+#' @importFrom utils data
 #' @references
 #' \describe{
 #'     \item{English}{Van Heuven, W. J., Mandera, P., Keuleers, E., & Brysbaert, M. (2014). SUBTLEX-UK: A new and improved word frequency database for British English. Quarterly journal of experimental psychology, 67(6), 1176-1190.}
@@ -46,16 +47,29 @@ import_subtlex <- function(){
   subtlex_cat <- subtlex_cat[, c("words", "abs_wf", "abs_wf", "zipf")]
   colnames(subtlex_cat) <- c("word", "frequency_abs", "frequency_rel", "frequency_zipf")
   
+  # to avoid issues with bindings in CMD CHECK
+  .new_env <- new.env(parent = emptyenv())
+  data("frequencies", envir = .new_env)
+  frequencies <- .new_env[["frequencies"]]
+  
   # merge
   x <- bind_rows(list(English = subtlex_eng, Spanish = subtlex_spa, Catalan = subtlex_cat), .id = "language")
-  x <- frequency[x$word %in% word, c("word", "language", "frequency_abs", "frequency_rel", "frequency_zipf")] 
+  x <- frequencies[x$word %in% word, c("word", "language", "frequency_abs", "frequency_rel", "frequency_zipf")] 
   x <- arrange(x, language, word, -frequency_zipf)
   
   return(x)
   
 }
 
+#' @author Gonzalo Garcia-Castro <gonzalo.garciadecastro@upf.edu>
+#' @importFrom utils data
+#' @importFrom utils write.table
+#' @importFrom rlang .env
 export_phonemes <- function(...){
-  data("phonemes")
-  write.table(phonemes, ..., row.names = FALSE)
+  # to avoid issues with bindings in CMD CHECK
+  .new_env <- new.env(parent = emptyenv())
+  data("phonemes", envir = .new_env)
+  phonemes <- .new_env[["phonemes"]]  
+  
+  write.table(.env$phonemes, ..., row.names = FALSE)
 }

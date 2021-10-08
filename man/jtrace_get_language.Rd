@@ -16,7 +16,9 @@ a data frame containing the duration scalars of each phoneme for the even featur
 implemented in jTRACE (\code{duration_scalar}), and a data frame containing the
 allophonic relations between the phonemes (\code{allophonic_relations}).
 @examples
-jtrace_get_language("default")
+\dontrun{
+ jtrace_get_language("default")
+ }
 }
 \description{
 Get jTRACE language
