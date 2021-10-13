@@ -2,7 +2,7 @@
 title: "Extracting a lexicon"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{extract-lexicon}
+  %\VignetteIndexEntry{Extracting a lexicon}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
@@ -32,7 +32,7 @@ You can import a lexicon from jTRACE as a data frame with `jtrace_get_lexicon`. 
 
 ```{r lexicon, echo=TRUE}
 library(jtracer)
-lex <- jtrace_get_lexicon(lexicon = "slex")
+lex <- jtracer::jtrace_get_lexicon(lexicon = "slex")
 head(lex)
 ```
 

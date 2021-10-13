@@ -13,7 +13,7 @@
 #' @references Strauss, T. J., Harris, H. D., & Magnuson, J. S. (2007). jTRACE: A reimplementation and extension of the TRACE model of speech perception and spoken word recognition. Behavior Research Methods, 39(1), 19-30.
 jtrace_check_java <- function(){
   java_current_version <- system("java -version", intern = TRUE)
-  if (is.null(java_current_version)) {
+  if (java_current_version==''){
     is_valid <- FALSE
   } else {
     java_version <- as.numeric(substr(regmatches(
@@ -44,32 +44,22 @@ jtrace_is_installed <- function(){
 #' @author Gonzalo Garcia-Castro <gonzalo.garciadecastro@upf.edu>
 #' @param overwrite Logical value indicating whether to replace an existing jTRACE folder, in case there is
 #' @param quiet Should downloading progress not be shown?
+#' @param check_java Should it be checked that Java is installed? 
 jtrace_install <- function(
-  overwrite = NULL,
-  quiet = FALSE
+  overwrite = FALSE,
+  quiet = FALSE,
+  check_java = FALSE
 ){
   
-  jtrace_check_java()
+  if (check_java) jtrace_check_java()
   
   # get path
   path <- file.path(system.file(package = "jtracer", mustWork = TRUE), "jtrace")
   
+  install <- (dir.exists(path) && overwrite) | !dir.exists(path)
   # check if folder exists
-  if (dir.exists(path)){
-    # if exists, ask if re-install
-    if (is.null(overwrite)){
-      overwrite <- ui_yeah("jTRACE is already installed. Do you want to re-install it?")
-      install <- overwrite
-      if (install){
-        unlink(path, recursive = TRUE, force = TRUE)
-      } 
-    } else if (!overwrite){
-      install <- FALSE
-    } else {
-      install <- TRUE
-    }
-  } else {
-    install <- TRUE
+  if (dir.exists(path) && overwrite){
+    unlink(path, recursive = TRUE, force = TRUE)
   }
   
   # download and unzip

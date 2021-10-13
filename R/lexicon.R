@@ -74,7 +74,7 @@ jtrace_create_lexicon <- function(
   body <- paste0("<lexeme><phonology>", phonology, "</phonology><frequency>", frequency, "</frequency></lexeme>")
   footer <- "</lexicon>"
   output_path <- paste0(system.file("jtrace", "lexicons", package = "jtracer", mustWork = TRUE), .Platform$file.sep, lexicon_name, ".xml")
-  # write_lines(c(header, body, footer), file = output_path)
+  write_lines(c(header, body, footer), file = output_path)
 }
 
 #' Extract lexical frequencies
@@ -101,7 +101,7 @@ jtrace_create_lexicon <- function(
 #' jtrace_get_frequency(word = my_words, language = "English", scale = "frequency_abs")
 #' jtrace_get_frequency(word = my_words, language = c("Spanish", "Catalan"), scale = "frequency_zipf")
 #' jtrace_get_frequency(word = my_words, language = c("Spanish"), scale = "frequency_rel")
-#' }S
+#' }
 jtrace_get_frequency <- function(
   word,
   language = "English",

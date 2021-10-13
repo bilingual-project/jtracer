@@ -4,12 +4,14 @@
 \alias{jtrace_install}
 \title{Download and install jTRACE}
 \usage{
-jtrace_install(overwrite = NULL, quiet = FALSE)
+jtrace_install(overwrite = FALSE, quiet = FALSE, check_java = FALSE)
 }
 \arguments{
 \item{overwrite}{Logical value indicating whether to replace an existing jTRACE folder, in case there is}
 
 \item{quiet}{Should downloading progress not be shown?}
+
+\item{check_java}{Should it be checked that Java is installed?}
 }
 \description{
 Download and install jTRACE

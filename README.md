@@ -7,11 +7,11 @@
 
 [![Lifecycle:
 experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
-[![R-CMD-check](https://github.com/bilingual-project/jtracer/workflows/R-CMD-check/badge.svg)](https://github.com/bilingual-project/jtracer/actions)
+[![R-CMD-check](https://github.com/gongcastro/jtracer/workflows/R-CMD-check/badge.svg)](https://github.com/gongcastro/jtracer/actions)
 [![CircleCI build
-status](https://circleci.com/gh/bilingual-project/jtracer.svg?style=svg)](https://circleci.com/gh/bilingual-project/jtracer)
+status](https://circleci.com/gh/gongcastro/jtracer.svg?style=svg)](https://circleci.com/gh/gongcastro/jtracer)
 [![Codecov test
-coverage](https://codecov.io/gh/bilingual-project/jtracer/branch/master/graph/badge.svg)](https://codecov.io/gh/bilingual-project/jtracer?branch=master)
+coverage](https://codecov.io/gh/gongcastro/jtracer/branch/master/graph/badge.svg)](https://codecov.io/gh/gongcastro/jtracer?branch=master)
 <!-- badges: end -->
 
 This package provides an R interface to jTRACE, a re-implementation of
