@@ -49,7 +49,8 @@ Of course, it can be cumbersome to create a data frame like this. An alternative
 We are all set up now!
 
 ```{r language_create}
-jtracer::jtrace_create_language(
+load_all()
+jtrace_create_language(
   language_name = "my_language",
   phonemes = p,
   features = f
