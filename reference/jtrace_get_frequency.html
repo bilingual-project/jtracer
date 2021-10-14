@@ -49,6 +49,9 @@
 <meta property="og:title" content="Extract lexical frequencies — jtrace_get_frequency" />
 <meta property="og:description" content="Extract lexical frequencies" />
 <meta property="og:image" content="/logo.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:creator" content="@gongcastro" />
+<meta name="twitter:site" content="@cbcUPF" />
 
 
 
@@ -125,7 +128,7 @@
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li>
-  <a href="https://github.com/bilingual-project/jtracer/">
+  <a href="https://github.com/gongcastro/jtracer/">
     <span class="fab fa-github fa-lg"></span>
      
   </a>
@@ -144,7 +147,7 @@
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>Extract lexical frequencies</h1>
-    <small class="dont-index">Source: <a href='https://github.com/bilingual-project/jtracer/blob/master/R/lexicon.R'><code>R/lexicon.R</code></a></small>
+    <small class="dont-index">Source: <a href='https://github.com/gongcastro/jtracer/blob/master/R/lexicon.R'><code>R/lexicon.R</code></a></small>
     <div class="hidden name"><code>jtrace_get_frequency.Rd</code></div>
     </div>
 
@@ -152,7 +155,7 @@
     <p>Extract lexical frequencies</p>
     </div>
 
-    <pre class="usage"><span class='fu'>jtrace_get_frequency</span><span class='op'>(</span><span class='va'>word</span>, language <span class='op'>=</span> <span class='st'>"English"</span>, scale <span class='op'>=</span> <span class='st'>"frequency_rel"</span><span class='op'>)</span></pre>
+    <pre class="usage"><span class='fu'>jtrace_get_frequency</span><span class='op'>(</span><span class='va'>word</span>, language <span class='op'>=</span> <span class='st'>"English"</span>, scale <span class='op'>=</span> <span class='st'>"frequency_abs"</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -189,31 +192,13 @@
     <p>Gonzalo Garcia-Castro <a href='mailto:gonzalo.garciadecastro@upf.edu'>gonzalo.garciadecastro@upf.edu</a></p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='va'>my_words</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"plane"</span>, <span class='st'>"cake"</span>, <span class='st'>"tiger"</span>, <span class='st'>"ham"</span>, <span class='st'>"seat"</span><span class='op'>)</span>
-<span class='fu'>jtrace_get_frequency</span><span class='op'>(</span>word <span class='op'>=</span> <span class='va'>my_words</span>, language <span class='op'>=</span> <span class='st'>"English"</span>, scale <span class='op'>=</span> <span class='st'>"frequency_rel"</span><span class='op'>)</span>
-</div><div class='output co'>#&gt;    word language frequency_rel
-#&gt; 1 plane  English    0.04833085
-#&gt; 2  cake  English    0.08043894
-#&gt; 3 tiger  English    0.02875230
-#&gt; 4   ham  English    0.02822112
-#&gt; 5  seat  English    0.07671445</div><div class='input'><span class='fu'>jtrace_get_frequency</span><span class='op'>(</span>word <span class='op'>=</span> <span class='va'>my_words</span>, language <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"Spanish"</span>, <span class='st'>"Catalan"</span><span class='op'>)</span>, scale <span class='op'>=</span> <span class='st'>"frequency_zipf"</span><span class='op'>)</span>
-</div><div class='output co'>#&gt;     word language frequency_zipf
-#&gt; 1  plane  Spanish       1.982967
-#&gt; 2   cake  Spanish       0.000000
-#&gt; 3  tiger  Spanish       3.389507
-#&gt; 4    ham  Spanish       0.000000
-#&gt; 5   seat  Spanish       0.000000
-#&gt; 6  plane  Catalan       2.812670
-#&gt; 7   cake  Catalan       0.000000
-#&gt; 8  tiger  Catalan       0.000000
-#&gt; 9    ham  Catalan       3.763432
-#&gt; 10  seat  Catalan       3.608454</div><div class='input'><span class='fu'>jtrace_get_frequency</span><span class='op'>(</span>word <span class='op'>=</span> <span class='va'>my_words</span>, language <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"Spanish"</span><span class='op'>)</span>, scale <span class='op'>=</span> <span class='st'>"frequency_abs"</span><span class='op'>)</span>
-</div><div class='output co'>#&gt;    word language frequency_abs
-#&gt; 1 plane  Spanish             4
-#&gt; 2  cake  Spanish             0
-#&gt; 3 tiger  Spanish           102
-#&gt; 4   ham  Spanish             0
-#&gt; 5  seat  Spanish             0</div></pre>
+    <pre class="examples"><div class='input'><span class='kw'>if</span> <span class='op'>(</span><span class='cn'>FALSE</span><span class='op'>)</span> <span class='op'>{</span>
+<span class='va'>my_words</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"plane"</span>, <span class='st'>"cake"</span>, <span class='st'>"tiger"</span>, <span class='st'>"ham"</span>, <span class='st'>"seat"</span><span class='op'>)</span>
+<span class='fu'>jtrace_get_frequency</span><span class='op'>(</span>word <span class='op'>=</span> <span class='va'>my_words</span>, language <span class='op'>=</span> <span class='st'>"English"</span>, scale <span class='op'>=</span> <span class='st'>"frequency_abs"</span><span class='op'>)</span>
+<span class='fu'>jtrace_get_frequency</span><span class='op'>(</span>word <span class='op'>=</span> <span class='va'>my_words</span>, language <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"Spanish"</span>, <span class='st'>"Catalan"</span><span class='op'>)</span>, scale <span class='op'>=</span> <span class='st'>"frequency_zipf"</span><span class='op'>)</span>
+<span class='fu'>jtrace_get_frequency</span><span class='op'>(</span>word <span class='op'>=</span> <span class='va'>my_words</span>, language <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"Spanish"</span><span class='op'>)</span>, scale <span class='op'>=</span> <span class='st'>"frequency_rel"</span><span class='op'>)</span>
+<span class='op'>}</span>
+</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

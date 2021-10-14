@@ -49,6 +49,9 @@
 <meta property="og:title" content="Transcribe phonology from IPA to jTRACE notation — ipa_to_jtrace" />
 <meta property="og:description" content="Transcribe phonology from IPA to jTRACE notation" />
 <meta property="og:image" content="/logo.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:creator" content="@gongcastro" />
+<meta name="twitter:site" content="@cbcUPF" />
 
 
 
@@ -125,7 +128,7 @@
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li>
-  <a href="https://github.com/bilingual-project/jtracer/">
+  <a href="https://github.com/gongcastro/jtracer/">
     <span class="fab fa-github fa-lg"></span>
      
   </a>
@@ -144,7 +147,7 @@
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>Transcribe phonology from IPA to jTRACE notation</h1>
-    <small class="dont-index">Source: <a href='https://github.com/bilingual-project/jtracer/blob/master/R/transcriptions.R'><code>R/transcriptions.R</code></a></small>
+    <small class="dont-index">Source: <a href='https://github.com/gongcastro/jtracer/blob/master/R/language.R'><code>R/language.R</code></a></small>
     <div class="hidden name"><code>ipa_to_jtrace.Rd</code></div>
     </div>
 
@@ -152,8 +155,37 @@
     <p>Transcribe phonology from IPA to jTRACE notation</p>
     </div>
 
-    <pre class="usage"><span class='fu'>ipa_to_jtrace</span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span></pre>
+    <pre class="usage"><span class='fu'>ipa_to_jtrace</span><span class='op'>(</span><span class='va'>x</span>, keep_other <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span></pre>
 
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>x</th>
+      <td><p>A character vector with the phonological forms to be transcribed</p></td>
+    </tr>
+    <tr>
+      <th>keep_other</th>
+      <td><p>Should symbols other than phonemes be kept in the
+transcriptions? Defaults to FALSE</p></td>
+    </tr>
+    </table>
+
+    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
+
+    <p>A character vector with the jTRACE transcriptions of the provided
+phonological forms</p>
+    <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
+
+    
+<ol>
+<li><p>If <code>keep_other</code>, special characters (symbols that do not
+correspond to phonemes in the <code>phonemes</code> data set, such as apostrophes
+or dots) are removed. 2) Colons (:) are replaced with the previous symbol,
+since they are interpreted as a modifier of the duration of the previous
+phoneme. 3) Pairwise replacements are performed according to the
+<code>phonemes</code> data set.</p></li>
+</ol>
 
 
   </div>

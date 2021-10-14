@@ -20,6 +20,9 @@
 <script src="pkgdown.js"></script><meta property="og:title" content="An R interface to jTRACE">
 <meta property="og:description" content="R helper functions to generate files to run simulations in jTRACE.">
 <meta property="og:image" content="/logo.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:creator" content="@gongcastro">
+<meta name="twitter:site" content="@cbcUPF">
 <!-- mathjax --><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/config/TeX-AMS-MML_HTMLorMML.js" integrity="sha256-84DKXVJXs0/F8OTMzX4UR909+jtl4G7SPypPavF+GfA=" crossorigin="anonymous"></script><!--[if lt IE 9]>
 <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
 <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
@@ -83,7 +86,7 @@
       </ul>
 <ul class="nav navbar-nav navbar-right">
 <li>
-  <a href="https://github.com/bilingual-project/jtracer/">
+  <a href="https://github.com/gongcastro/jtracer/">
     <span class="fab fa-github fa-lg"></span>
      
   </a>
@@ -134,178 +137,6 @@
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu">jtracer</span><span class="fu">::</span><span class="fu"><a href="reference/jtrace_launch.html">jtrace_launch</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
 </div>
-<div id="extracting-a-lexicon-from-jtrace" class="section level2">
-<h2 class="hasAnchor">
-<a href="#extracting-a-lexicon-from-jtrace" class="anchor"></a>Extracting a lexicon from jTRACE</h2>
-<p>jTRACE has multiple lexica available to perform simulations. By default, it offers:</p>
-<ul>
-<li>biglex_lr</li>
-<li>biglex_lr_^a</li>
-<li>biglex901</li>
-<li>context_lex</li>
-<li>empty</li>
-<li>initial_lexicon</li>
-<li>sevenlex</li>
-<li>slex</li>
-<li>slex_pairs</li>
-</ul>
-<p>You can import a lexicon from jTRACE as a data frame with <code>jtrace_get_lexicon</code>. For example:</p>
-<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://bilingual-project.github.io/jtracer/">jtracer</a></span><span class="op">)</span>
-<span class="va">lex</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/jtrace_get_lexicon.html">jtrace_get_lexicon</a></span><span class="op">(</span>lexicon <span class="op">=</span> <span class="st">"slex"</span><span class="op">)</span>
-<span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">lex</span><span class="op">)</span>
-<span class="co">#&gt;       phonology frequency</span>
-<span class="co">#&gt; 1    ^              23248</span>
-<span class="co">#&gt; 2    ^br^pt            37</span>
-<span class="co">#&gt; 3    ^dapt             71</span>
-<span class="co">#&gt; 4    ^d^lt             50</span>
-<span class="co">#&gt; 5    ^gri             264</span>
-<span class="co">#&gt; 6    ^lat              50</span></code></pre></div>
-</div>
-<div id="extracting-a-language" class="section level2">
-<h2 class="hasAnchor">
-<a href="#extracting-a-language" class="anchor"></a>Extracting a language</h2>
-<p>jTRACE includes a default language, which consists on a matrix with the scores of a series of phonemes across the seven feature dimensions considered by the TRAC model, a matrix with the duration score of each phoneme in each feature, and a matrix of logical values indicating the allophonic relations between phonemes. You can extract this language by running:</p>
-<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="reference/jtrace_get_language.html">jtrace_get_language</a></span><span class="op">(</span>language_name <span class="op">=</span> <span class="st">"default"</span><span class="op">)</span>
-<span class="co">#&gt; $features</span>
-<span class="co">#&gt;   bur voi con grd dif voc pow</span>
-<span class="co">#&gt; -   9   9   9   9   9   9   9</span>
-<span class="co">#&gt; ^   2   1   4   8   2   1   1</span>
-<span class="co">#&gt; a   1   1   7   8   2   1   1</span>
-<span class="co">#&gt; b   5   8   2   7   8   2   2</span>
-<span class="co">#&gt; d   5   8   2   2   8   2   4</span>
-<span class="co">#&gt; g   5   8   7   6   8   2   6</span>
-<span class="co">#&gt; i   1   1   1   1   2   1   1</span>
-<span class="co">#&gt; k   5   8   7   6   8   8   5</span>
-<span class="co">#&gt; l   2   2   7   5   5   1   1</span>
-<span class="co">#&gt; p   5   8   2   7   8   8   1</span>
-<span class="co">#&gt; r   2   2   8   7   5   1   1</span>
-<span class="co">#&gt; s   3   5   2   1   4   8   1</span>
-<span class="co">#&gt; S   3   5   3   5   4   8   1</span>
-<span class="co">#&gt; t   5   8   2   2   8   8   3</span>
-<span class="co">#&gt; u   1   1   3   7   2   1   1</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; $duration_scalar</span>
-<span class="co">#&gt;   bur voi con grd dif voc pow</span>
-<span class="co">#&gt; -   1   1   1   1   1   1   1</span>
-<span class="co">#&gt; ^   1   1   1   1   1   1   1</span>
-<span class="co">#&gt; a   1   1   1   1   1   1   1</span>
-<span class="co">#&gt; b   1   1   1   1   1   1   1</span>
-<span class="co">#&gt; d   1   1   1   1   1   1   1</span>
-<span class="co">#&gt; g   1   1   1   1   1   1   1</span>
-<span class="co">#&gt; i   1   1   1   1   1   1   1</span>
-<span class="co">#&gt; k   1   1   1   1   1   1   1</span>
-<span class="co">#&gt; l   1   1   1   1   1   1   1</span>
-<span class="co">#&gt; p   1   1   1   1   1   1   1</span>
-<span class="co">#&gt; r   1   1   1   1   1   1   1</span>
-<span class="co">#&gt; s   1   1   1   1   1   1   1</span>
-<span class="co">#&gt; S   1   1   1   1   1   1   1</span>
-<span class="co">#&gt; t   1   1   1   1   1   1   1</span>
-<span class="co">#&gt; u   1   1   1   1   1   1   1</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; $allophonic_relations</span>
-<span class="co">#&gt;       -     ^     a     b     d     g     i     k     l     p     r     s     S</span>
-<span class="co">#&gt; - FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE</span>
-<span class="co">#&gt; ^ FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE</span>
-<span class="co">#&gt; a FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE</span>
-<span class="co">#&gt; b FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE</span>
-<span class="co">#&gt; d FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE</span>
-<span class="co">#&gt; g FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE</span>
-<span class="co">#&gt; i FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE</span>
-<span class="co">#&gt; k FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE</span>
-<span class="co">#&gt; l FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE</span>
-<span class="co">#&gt; p FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE</span>
-<span class="co">#&gt; r FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE</span>
-<span class="co">#&gt; s FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE</span>
-<span class="co">#&gt; S FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE</span>
-<span class="co">#&gt; t FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE</span>
-<span class="co">#&gt; u FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE</span>
-<span class="co">#&gt;       t     u</span>
-<span class="co">#&gt; - FALSE FALSE</span>
-<span class="co">#&gt; ^ FALSE FALSE</span>
-<span class="co">#&gt; a FALSE FALSE</span>
-<span class="co">#&gt; b FALSE FALSE</span>
-<span class="co">#&gt; d FALSE FALSE</span>
-<span class="co">#&gt; g FALSE FALSE</span>
-<span class="co">#&gt; i FALSE FALSE</span>
-<span class="co">#&gt; k FALSE FALSE</span>
-<span class="co">#&gt; l FALSE FALSE</span>
-<span class="co">#&gt; p FALSE FALSE</span>
-<span class="co">#&gt; r FALSE FALSE</span>
-<span class="co">#&gt; s FALSE FALSE</span>
-<span class="co">#&gt; S FALSE FALSE</span>
-<span class="co">#&gt; t FALSE FALSE</span>
-<span class="co">#&gt; u FALSE FALSE</span></code></pre></div>
-<p>As you create new languages (see next section), you will be able to extract them using the same command.</p>
-</div>
-<div id="creating-a-new-language" class="section level2">
-<h2 class="hasAnchor">
-<a href="#creating-a-new-language" class="anchor"></a>Creating a new language</h2>
-<p>We can create new languages by creating a set of phonemes and scoring them across the seven feature dimensions the TRACE model considers. The <code>jtrace_create_language</code> takes care of generating a file jTRACE can read and run simulations with.</p>
-<p>The <code>jtrace_create_language</code> takes, at least, a character value indicating the name you want to give your new language, a vector or phonemes (in jTRACE notation)ñ of length M, and a M x 7 matrix or data frame with the scores (0-9) of each phoneme (rows) in each of the feature dimensions (columns). If the feature data frame includes row names with valid phoneme symbols, you can omit the <code>phonemes</code> argument. Optionally, you can also provide duration values (0-1) for each phoneme in each feature as a M x 7 matrix with same dimensions as the one provided in the <code>features</code> argument, and/or a M x M matrix stating allophonic relations between phonemes (with logical values, TRUE/FALSE). See the documentation for more details (<code><a href="reference/jtrace_create_language.html">?jtrace_create_language</a></code>).</p>
-<div id="generate-a-phoneme-inventory" class="section level3">
-<h3 class="hasAnchor">
-<a href="#generate-a-phoneme-inventory" class="anchor"></a>Generate a phoneme inventory</h3>
-<p>First, we create a character vector with the phoneme symbols:</p>
-<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">p</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"-"</span>, <span class="st">"a"</span>, <span class="st">"s"</span>, <span class="st">"d"</span>, <span class="st">"f"</span>, <span class="st">"g"</span>, <span class="st">"c"</span><span class="op">)</span> </code></pre></div>
-<p>Then, we create a the features matrix (please note that scores are assigned randomly, and this example is not supposed to reflect a real-life case):</p>
-<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">f</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span>
-  bur <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">9</span>, <span class="fl">6</span>, <span class="fl">4</span>, <span class="fl">3</span>, <span class="fl">1</span>, <span class="fl">1</span>, <span class="fl">2</span><span class="op">)</span>,
-  voi <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">7</span>, <span class="fl">4</span>, <span class="fl">3</span>, <span class="fl">3</span>, <span class="fl">3</span>, <span class="fl">3</span>, <span class="fl">4</span><span class="op">)</span>,
-  con <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">8</span>, <span class="fl">2</span>, <span class="fl">4</span>, <span class="fl">2</span>, <span class="fl">5</span>, <span class="fl">5</span>, <span class="fl">6</span><span class="op">)</span>,
-  grd <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">4</span>, <span class="fl">6</span>, <span class="fl">1</span>, <span class="fl">4</span>, <span class="fl">6</span>, <span class="fl">8</span>, <span class="fl">6</span><span class="op">)</span>,
-  dif <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">6</span>, <span class="fl">3</span>, <span class="fl">2</span>, <span class="fl">6</span>, <span class="fl">6</span>, <span class="fl">6</span>, <span class="fl">7</span><span class="op">)</span>,
-  voc <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">3</span>, <span class="fl">8</span>, <span class="fl">1</span>, <span class="fl">6</span>, <span class="fl">6</span>, <span class="fl">7</span>, <span class="fl">4</span><span class="op">)</span>,
-  pow <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">6</span>, <span class="fl">4</span>, <span class="fl">1</span>, <span class="fl">6</span>, <span class="fl">1</span>, <span class="fl">1</span>, <span class="fl">5</span><span class="op">)</span>
-<span class="op">)</span></code></pre></div>
-<p>Of course, it can be cumbersome to create a data frame like this. An alternative would be to create a table in an Excel spreadsheet and importing it to your R session or copy-pasting it into your console using the “Paste as tribble” adding from the <a href="https://github.com/MilesMcBain/datapasta">datapasta</a> R package.</p>
-<p>We are all set up now!</p>
-<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="reference/jtrace_create_language.html">jtrace_create_language</a></span><span class="op">(</span>
-  language_name <span class="op">=</span> <span class="st">"custom"</span>,
-  phonemes <span class="op">=</span> <span class="va">p</span>,
-  features <span class="op">=</span> <span class="va">f</span>
-<span class="op">)</span>
-<span class="co">#&gt; v Language added at 'C:/Users/gonza/AppData/Local/Temp/Rtmpgf4Pgs/temp_libpathaf4639928c5/jtracer/jtrace/languages/custom.xml'</span></code></pre></div>
-<p>As the output says, you new language has been converted to a .jt file that is noew ready to be imported in jTRACE. You can launch jTRACE from your console by running <code><a href="reference/jtrace_launch.html">jtrace_launch()</a></code>. You will find the language at “.jtrace/languages/custom.jt” (see <code>.jtrace$PATH</code> to see where the .jtrace folder is located) in your machine.</p>
-<p>You can also get your language by running:</p>
-<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="reference/jtrace_get_language.html">jtrace_get_language</a></span><span class="op">(</span>language_name <span class="op">=</span> <span class="st">"custom"</span><span class="op">)</span>
-<span class="co">#&gt; $features</span>
-<span class="co">#&gt;   bur voi con grd dif voc pow</span>
-<span class="co">#&gt; -   9   7   8   4   6   3   6</span>
-<span class="co">#&gt; a   6   4   2   6   3   8   4</span>
-<span class="co">#&gt; s   4   3   4   1   2   1   1</span>
-<span class="co">#&gt; d   3   3   2   4   6   6   6</span>
-<span class="co">#&gt; f   1   3   5   6   6   6   1</span>
-<span class="co">#&gt; g   1   3   5   8   6   7   1</span>
-<span class="co">#&gt; c   2   4   6   6   7   4   5</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; $duration_scalar</span>
-<span class="co">#&gt;   bur voi con grd dif voc pow</span>
-<span class="co">#&gt; -   1   1   1   1   1   1   1</span>
-<span class="co">#&gt; a   1   1   1   1   1   1   1</span>
-<span class="co">#&gt; s   1   1   1   1   1   1   1</span>
-<span class="co">#&gt; d   1   1   1   1   1   1   1</span>
-<span class="co">#&gt; f   1   1   1   1   1   1   1</span>
-<span class="co">#&gt; g   1   1   1   1   1   1   1</span>
-<span class="co">#&gt; c   1   1   1   1   1   1   1</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; $allophonic_relations</span>
-<span class="co">#&gt;       -     a     s     d     f     g     c</span>
-<span class="co">#&gt; - FALSE FALSE FALSE FALSE FALSE FALSE FALSE</span>
-<span class="co">#&gt; a FALSE FALSE FALSE FALSE FALSE FALSE FALSE</span>
-<span class="co">#&gt; s FALSE FALSE FALSE FALSE FALSE FALSE FALSE</span>
-<span class="co">#&gt; d FALSE FALSE FALSE FALSE FALSE FALSE FALSE</span>
-<span class="co">#&gt; f FALSE FALSE FALSE FALSE FALSE FALSE FALSE</span>
-<span class="co">#&gt; g FALSE FALSE FALSE FALSE FALSE FALSE FALSE</span>
-<span class="co">#&gt; c FALSE FALSE FALSE FALSE FALSE FALSE FALSE</span></code></pre></div>
-<p>This will return a list with the feature, duration, and allophones matrices.</p>
-</div>
-</div>
 </div>
   </div>
 
@@ -313,9 +144,11 @@
     <div class="links">
 <h2>Links</h2>
 <ul class="list-unstyled">
-<li>Browse source code at <br><a href="https://github.com/bilingual-project/jtracer/">https://​github.com/​bilingual-project/​jtracer/​</a>
+<li>Browse source code at <br><a href="https://github.com/gongcastro/jtracer/">https://​github.com/​gongcastro/​jtracer/​</a>
 </li>
-<li>Report a bug at <br><a href="https://github.com/bilingual-project/jtracer/issues">https://​github.com/​bilingual-project/​jtracer/​issues</a>
+<li>Report a bug at <br><a href="https://github.com/gongcastro/jtracer/issues">https://​github.com/​gongcastro/​jtracer/​issues</a>
+</li>
+<li>jTRACE website at <br><a href="https://magnuson.psy.uconn.edu/jtrace/">https://​magnuson.psy.uconn.edu/​jtrace/​</a>
 </li>
 </ul>
 </div>
@@ -324,6 +157,12 @@
 <ul class="list-unstyled">
 <li><a href="LICENSE.html">Full license</a></li>
 <li><small><a href="https://opensource.org/licenses/mit-license.php">MIT</a> + file <a href="LICENSE-text.html">LICENSE</a></small></li>
+</ul>
+</div>
+<div class="community">
+<h2>Community</h2>
+<ul class="list-unstyled">
+<li><a href="CONTRIBUTING.html">Contributing guide</a></li>
 </ul>
 </div>
 <div class="developers">
@@ -338,7 +177,9 @@
 <h2>Dev status</h2>
 <ul class="list-unstyled">
 <li><a href="https://lifecycle.r-lib.org/articles/stages.html#experimental"><img src="https://img.shields.io/badge/lifecycle-experimental-orange.svg" alt="Lifecycle: experimental"></a></li>
-<li><a href="https://github.com/bilingual-project/jtracer/actions"><img src="https://github.com/bilingual-project/jtracer/workflows/R-CMD-check/badge.svg" alt="R-CMD-check"></a></li>
+<li><a href="https://github.com/gongcastro/jtracer/actions"><img src="https://github.com/gongcastro/jtracer/workflows/R-CMD-check/badge.svg" alt="R-CMD-check"></a></li>
+<li><a href="https://circleci.com/gh/gongcastro/jtracer"><img src="https://circleci.com/gh/gongcastro/jtracer.svg?style=svg" alt="CircleCI build status"></a></li>
+<li><a href="https://codecov.io/gh/gongcastro/jtracer?branch=master"><img src="https://codecov.io/gh/gongcastro/jtracer/branch/master/graph/badge.svg" alt="Codecov test coverage"></a></li>
 </ul>
 </div>
 </div>

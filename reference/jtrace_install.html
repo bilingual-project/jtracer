@@ -49,6 +49,9 @@
 <meta property="og:title" content="Download and install jTRACE — jtrace_install" />
 <meta property="og:description" content="Download and install jTRACE" />
 <meta property="og:image" content="/logo.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:creator" content="@gongcastro" />
+<meta name="twitter:site" content="@cbcUPF" />
 
 
 
@@ -125,7 +128,7 @@
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li>
-  <a href="https://github.com/bilingual-project/jtracer/">
+  <a href="https://github.com/gongcastro/jtracer/">
     <span class="fab fa-github fa-lg"></span>
      
   </a>
@@ -144,7 +147,7 @@
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>Download and install jTRACE</h1>
-    <small class="dont-index">Source: <a href='https://github.com/bilingual-project/jtracer/blob/master/R/install.R'><code>R/install.R</code></a></small>
+    <small class="dont-index">Source: <a href='https://github.com/gongcastro/jtracer/blob/master/R/install.R'><code>R/install.R</code></a></small>
     <div class="hidden name"><code>jtrace_install.Rd</code></div>
     </div>
 
@@ -152,7 +155,7 @@
     <p>Download and install jTRACE</p>
     </div>
 
-    <pre class="usage"><span class='fu'>jtrace_install</span><span class='op'>(</span>overwrite <span class='op'>=</span> <span class='cn'>NULL</span>, quiet <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span></pre>
+    <pre class="usage"><span class='fu'>jtrace_install</span><span class='op'>(</span>overwrite <span class='op'>=</span> <span class='cn'>FALSE</span>, quiet <span class='op'>=</span> <span class='cn'>FALSE</span>, check_java <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -164,6 +167,10 @@
     <tr>
       <th>quiet</th>
       <td><p>Should downloading progress not be shown?</p></td>
+    </tr>
+    <tr>
+      <th>check_java</th>
+      <td><p>Should it be checked that Java is installed?</p></td>
     </tr>
     </table>
 
