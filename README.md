@@ -12,9 +12,8 @@ experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](h
 Status](https://img.shields.io/github/workflow/status/gongcastro/jtracer/pkgdown)
 [![CircleCI build
 status](https://circleci.com/gh/gongcastro/jtracer.svg?style=svg)](https://circleci.com/gh/gongcastro/jtracer)
-[![Codecov test
-coverage](https://codecov.io/gh/gongcastro/jtracer/branch/master/graph/badge.svg)](https://codecov.io/gh/gongcastro/jtracer?branch=master)
-![GitHub top
+[![codecov](https://codecov.io/gh/gongcastro/jtracer/branch/master/graph/badge.svg?token=G80PNPBIM8)](https://codecov.io/gh/gongcastro/jtracer)![GitHub
+top
 language](https://img.shields.io/github/languages/top/gongcastro/jtracer)
 ![GitHub last
 commit](https://img.shields.io/github/last-commit/gongcastro/jtracer)
