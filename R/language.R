@@ -35,9 +35,8 @@ jtrace_list_languages <- function(){
 #'  implemented in jTRACE (\code{duration_scalar}), and a data frame containing the
 #'  allophonic relations between the phonemes (\code{allophonic_relations}).
 #'  @examples 
-#'  \dontrun{
 #'  jtrace_get_language("default")
-#'  }
+#'
 jtrace_get_language <- function(
   language_name = "default"
 ){
@@ -134,7 +133,6 @@ jtrace_get_language <- function(
 #' @param allophonic_relations Array or data frame with logical values indicating whether each combination of phonemes is an allophone, with phonemes are rows and columns. If NULL (default), no allophonic relations are specified.
 #' @param language_name Name of the language that will be created.
 #' @examples 
-#' \dontrun{
 #' # first, we create a character vector with the phoneme symbols
 #' p <- c("-", "a", "s", "d", "f", "g", "c") 
 #' # then we create a the features matrix
@@ -149,7 +147,7 @@ jtrace_get_language <- function(
 #' )
 #' # now we create the language
 #' jtrace_create_language(language_name = "my_language", phonemes = p, features = f)
-#' }
+#'
 jtrace_create_language <- function(
   phonemes = NULL,
   features,

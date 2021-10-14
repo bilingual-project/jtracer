@@ -5,7 +5,7 @@
 #' @seealso \code{\link{jtrace_get_lexicon}} for importing a lexicon, and \code{\link{jtrace_create_language}} for creating a new lexicon.
 #' @references Strauss, T. J., Harris, H. D., & Magnuson, J. S. (2007). jTRACE: A reimplementation and extension of the TRACE model of speech perception and spoken word recognition. Behavior Research Methods, 39(1), 19-30.
 #' @examples
-#' \dontrun{jtrace_list_lexicons()}
+#' jtrace_list_lexicons()
 jtrace_list_lexicons <- function(){
   is_installed <- jtrace_is_installed()
   if (!is_installed) stop("jTRACE is not installed, please run jtrace_install()")
@@ -27,7 +27,7 @@ jtrace_list_lexicons <- function(){
 #' @seealso \code{\link{jtrace_list_lexicons}} for listing available lexicons, and \code{\link{jtrace_create_language}} for creating a new lexicon.
 #' @references Strauss, T. J., Harris, H. D., & Magnuson, J. S. (2007). jTRACE: A reimplementation and extension of the TRACE model of speech perception and spoken word recognition. Behavior Research Methods, 39(1), 19-30.
 #' @examples
-#' \dontrun{jtrace_get_lexicon("sevenlex")}
+#' jtrace_get_lexicon("sevenlex")
 jtrace_get_lexicon <- function(
   lexicon = NULL
 ){
@@ -57,11 +57,10 @@ jtrace_get_lexicon <- function(
 #' @seealso \code{\link{jtrace_list_lexicons}} for listing available lexicons, and \code{\link{jtrace_get_lexicon}} for importing a lexicon.
 #' @references Strauss, T. J., Harris, H. D., & Magnuson, J. S. (2007). jTRACE: A reimplementation and extension of the TRACE model of speech perception and spoken word recognition. Behavior Research Methods, 39(1), 19-30.
 #' @examples
-#' \dontrun{
 #' my_phons <- c("plEIn", "kEIk", "taIɡ@", "ham", "sit")
 #' my_freqs <- c(0.0483, 0.0804, 0.0288, 0.0282, 0.0767)
 #' jtrace_create_lexicon(phonology = my_phons, frequency = my_freqs, lexicon_name = "my_lex")
-#' }
+#'
 jtrace_create_lexicon <- function(
   phonology,
   frequency,
@@ -96,12 +95,11 @@ jtrace_create_lexicon <- function(
 #'     \item{Catalan}{Boada, R., Guasch, M., Haro, J., Demestre, J., & Ferré, P. (2020). SUBTLEX-CAT: Subtitle word frequencies and contextual diversity for Catalan. Behavior research methods, 52(1), 360-375.}
 #' }
 #' @examples 
-#' \dontrun{
 #' my_words <- c("plane", "cake", "tiger", "ham", "seat")
 #' jtrace_get_frequency(word = my_words, language = "English", scale = "frequency_abs")
 #' jtrace_get_frequency(word = my_words, language = c("Spanish", "Catalan"), scale = "frequency_zipf")
 #' jtrace_get_frequency(word = my_words, language = c("Spanish"), scale = "frequency_rel")
-#' }
+#'
 jtrace_get_frequency <- function(
   word,
   language = "English",
