@@ -13,7 +13,7 @@ A character vector listing the available lexicons in the jTRACE folder
 List jTRACE available lexicons
 }
 \examples{
-\dontrun{jtrace_list_lexicons()}
+jtrace_list_lexicons()
 }
 \references{
 Strauss, T. J., Harris, H. D., & Magnuson, J. S. (2007). jTRACE: A reimplementation and extension of the TRACE model of speech perception and spoken word recognition. Behavior Research Methods, 39(1), 19-30.
