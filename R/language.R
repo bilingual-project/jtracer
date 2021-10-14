@@ -36,9 +36,7 @@ jtrace_list_languages <- function(){
 #'  implemented in jTRACE (\code{duration_scalar}), and a data frame containing the
 #'  allophonic relations between the phonemes (\code{allophonic_relations}).
 #'  @examples 
-#'  \dontrun{
-#'  jtrace_get_language("default")
-#'  }
+#'  \dontrun{jtrace_get_language("default")}
 jtrace_get_language <- function(
   language_name = "default"
 ){
