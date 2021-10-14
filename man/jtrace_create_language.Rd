@@ -27,6 +27,7 @@ jtrace_create_language(
 Create jTRACE language (phonemic inventory)
 }
 \examples{
+\dontrun{
 # first, we create a character vector with the phoneme symbols
 p <- c("-", "a", "s", "d", "f", "g", "c") 
 # then we create a the features matrix
@@ -41,7 +42,7 @@ f <- data.frame(
 )
 # now we create the language
 jtrace_create_language(language_name = "my_language", phonemes = p, features = f)
-
+}
 }
 \references{
 Strauss, T. J., Harris, H. D., & Magnuson, J. S. (2007). jTRACE: A reimplementation and extension of the TRACE model of speech perception and spoken word recognition. Behavior Research Methods, 39(1), 19-30.

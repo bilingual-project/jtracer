@@ -17,10 +17,11 @@ jtrace_create_lexicon(phonology, frequency, lexicon_name)
 Create jTRACE lexicon
 }
 \examples{
+\dontrun{
 my_phons <- c("plEIn", "kEIk", "taIÉ¡@", "ham", "sit")
 my_freqs <- c(0.0483, 0.0804, 0.0288, 0.0282, 0.0767)
 jtrace_create_lexicon(phonology = my_phons, frequency = my_freqs, lexicon_name = "my_lex")
-
+}
 }
 \references{
 Strauss, T. J., Harris, H. D., & Magnuson, J. S. (2007). jTRACE: A reimplementation and extension of the TRACE model of speech perception and spoken word recognition. Behavior Research Methods, 39(1), 19-30.

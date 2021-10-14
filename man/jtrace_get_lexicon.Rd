@@ -19,7 +19,7 @@ depending on the information provided in that file in the jTRACE original implem
 Get jTRACE lexicon
 }
 \examples{
-jtrace_get_lexicon("sevenlex")
+\dontrun{jtrace_get_lexicon("sevenlex")}
 }
 \references{
 Strauss, T. J., Harris, H. D., & Magnuson, J. S. (2007). jTRACE: A reimplementation and extension of the TRACE model of speech perception and spoken word recognition. Behavior Research Methods, 39(1), 19-30.
