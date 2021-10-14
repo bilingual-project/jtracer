@@ -53,6 +53,7 @@ articles:
 - title: All vignettes
   desc: ~
   contents:
+  - '`launching-trace`'
   - '`create-language`'
   - '`create-lexicon`'
   - '`extract-language`'

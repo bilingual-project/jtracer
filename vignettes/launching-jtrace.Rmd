@@ -18,6 +18,7 @@ knitr::opts_chunk$set(
 
 ```{r setup}
 library(jtracer)
+jtrace_install()
 ```
 
 

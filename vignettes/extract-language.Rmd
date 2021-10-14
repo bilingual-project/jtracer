@@ -20,6 +20,7 @@ jTRACE includes a default language, which consists on a matrix with the scores o
 
 ```{r language_get}
 library(jtracer)
+jtrace_install()
 default_language <- jtrace_get_language(language_name = "default")
 ```
 

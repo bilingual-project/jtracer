@@ -16,6 +16,7 @@ knitr::opts_chunk$set(
 
 ```{r prepare}
 library(jtracer)
+jtrace_install()
 ```
 
 We can create new languages by creating a set of phonemes and scoring them across the seven feature dimensions the TRACE model considers. The `jtrace_create_language` takes care of generating a file jTRACE can read and run simulations with.

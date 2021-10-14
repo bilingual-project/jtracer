@@ -32,6 +32,7 @@ You can import a lexicon from jTRACE as a data frame with `jtrace_get_lexicon`. 
 
 ```{r lexicon, echo=TRUE}
 library(jtracer)
+jtrace_install()
 lex <- jtracer::jtrace_get_lexicon(lexicon = "slex")
 head(lex)
 ```

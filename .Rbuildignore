@@ -22,3 +22,5 @@
 ^\.circleci$
 ^\.circleci/config\.yml$
 ^codecov\.yml$
+^doc$
+^Meta$
