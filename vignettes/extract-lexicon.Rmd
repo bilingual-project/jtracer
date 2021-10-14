@@ -3,7 +3,7 @@ title: "Extracting a lexicon"
 output: rmarkdown::html_vignette
 vignette: >
   %\VignetteIndexEntry{Extracting a lexicon}
-  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEngine{knitr::knitr}
   %\VignetteEncoding{UTF-8}
 ---
 

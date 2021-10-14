@@ -3,7 +3,7 @@ title: "Creating a lexicon"
 output: rmarkdown::html_vignette
 vignette: >
   %\VignetteIndexEntry{Creating a lexicon}
-  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEngine{knitr::knitr}
   %\VignetteEncoding{UTF-8}
 ---
 

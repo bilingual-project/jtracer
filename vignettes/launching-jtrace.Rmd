@@ -3,7 +3,7 @@ title: "Launching jTRACE from the R console"
 output: rmarkdown::html_vignette
 vignette: >
   %\VignetteIndexEntry{Launching jTRACE from the R console}
-  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEngine{knitr::knitr}
   %\VignetteEncoding{UTF-8}
 resource_files:
   - images/jtrace_screenshot1.png

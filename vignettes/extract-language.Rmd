@@ -3,7 +3,7 @@ title: "Extracting a language"
 output: rmarkdown::html_vignette
 vignette: >
   %\VignetteIndexEntry{Extracting a language}
-  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEngine{knitr::knitr}
   %\VignetteEncoding{UTF-8}
 ---
 

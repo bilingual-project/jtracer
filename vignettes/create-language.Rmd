@@ -3,7 +3,7 @@ title: "Creating a language (phoneme inventory)"
 output: rmarkdown::html_vignette
 vignette: >
   %\VignetteIndexEntry{Creating a language (phoneme inventory)}
-  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEngine{knitr::knitr}
   %\VignetteEncoding{UTF-8}
 ---
 
