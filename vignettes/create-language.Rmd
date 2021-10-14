@@ -57,13 +57,3 @@ jtrace_create_language(
 )
 ```
 
-As the output says, you new language has been converted to a .jt file that is noew ready to be imported in jTRACE. You can launch jTRACE from your console by running `jtrace_launch()`. You will find the language at ".jtrace/languages/custom.jt" (see `.jtrace$PATH` to see where the .jtrace folder is located) in your machine.
-
-
-You can also extract your language by running:
-
-```{r language_get}
-jtrace_get_language(language_name = "my_language")
-```
-
-This will return a list with the feature, duration, and allophones matrices.

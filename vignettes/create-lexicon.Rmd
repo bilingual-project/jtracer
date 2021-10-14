@@ -65,9 +65,3 @@ Now we can check that our lexicon is available:
 jtrace_list_lexicons()
 ```
 
-We can import it to our R session using the `jtrace_get_lexicon` (see code below). This function returns a data frame with two columns: `phonology` contains the phonological forms of the words included in the lexicon in jTRACE notation, and `frequency` contains the lexical frequency of each word form, as extracted when the lexicon was created.
-
-```{r lexicons_get, echo = TRUE}
-jtrace_get_lexicon(lexicon = "my_lex")
-```
-
