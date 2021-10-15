@@ -117,7 +117,7 @@ How are the seven feature dimensions related to each other?
 library(ggplot2)
 library(ggcorrplot)
 
-corr <- cor_pmat(phonemes[, 6:12])
+corr <- cor_pmat(phonemes[, 9:15])
 colnames(corr) <- toupper(colnames(corr))
 rownames(corr) <- toupper(colnames(corr))
 
