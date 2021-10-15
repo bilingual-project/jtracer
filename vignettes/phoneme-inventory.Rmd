@@ -33,9 +33,11 @@ head(phonemes)
 
 ```
 
+## Non-English phonemes
+
 Both versions were explicitly designed to fit the English phonology. We have coded new phonemes, not restricted to the English phonology, in the `phonemes` data frame included in this package. This way, it is possible to run simlation on a model that is familiar to phonologies different than the English one, such as Spanish and Catalan. The dataframe includes three logical variables indicating whether a given phoneme is present in English (`is_english`), Spanish (`is_spanish`), or Catalan (`is_catalan`), respectively.
 
-## English phoneme set
+### English phoneme set
 
 ```{r list_english, echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE}
 library(gt)
@@ -62,7 +64,7 @@ phonemes %>%
   )
 ```
 
-## Spanish phoneme set
+### Spanish phoneme set
 
 ```{r list_spanish, echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE}
 phonemes %>%
@@ -86,7 +88,7 @@ phonemes %>%
   )
 ```
 
-## Catalan phoneme set
+### Catalan phoneme set
 
 ```{r list_catalan, echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE}
 phonemes %>%
@@ -111,6 +113,24 @@ phonemes %>%
 ```
 
 
+## Creating a jTRACE-compatible language from the `phonemes` dataset
+
+Imagine we wanted to run some simulations on a model that is familiar to the Spanish phonology. We could do so by shortlisting those phonemes present in Spanish (`is_spanish` is `TRUE`) and then following the steps in the [Creating a language](https://gongcastro.github.io/jtracer/articles/create-language.html) vignette. Please note that allophonic relations and duration scalars cannot be yet modified.
+
+```{r}
+spanish_phonemes <- phonemes %>% 
+  filter(is_spanish) %>% 
+  select(trace, pow:bur)
+
+jtrace_create_language(
+  language_name = "spanish",
+  features = spanish_phonemes
+)  
+
+```
+
+Now we are ready to launch jTRACE running `jtrace_launch()` and loading the `languages/spanish.xml` file in the *Phonemes* tab.
+
 How are the seven feature dimensions related to each other?
 
 ```{r cors, echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE}
@@ -133,6 +153,9 @@ ggcorrplot(
     panel.grid = element_blank()
   )
 ```
+
+
+## Appendix
 
 This is the complete list of implemented phonemes: 
 
