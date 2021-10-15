@@ -162,7 +162,8 @@ This is the complete list of implemented phonemes:
 
 ```{r list}
 phonemes %>% 
-  rename_at(vars(pow:bur), toupper) %>% 
+  rename_at(vars(pow:bur), toupper) %>%
+  rename_at(vars(starts_with("is_")), ~gsub("is_", "", .)) %>% 
   gt(rowname_col = "id", groupname_col = "type") %>% 
   tab_spanner(md("**Acoustic features**"), columns = 6:12) %>% 
   cols_label(
