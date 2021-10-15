@@ -73,3 +73,28 @@ export_phonemes <- function(...){
   
   write.table(.env$phonemes, ..., row.names = FALSE)
 }
+
+
+#' @author Gonzalo Garcia-Castro <gonzalo.garciadecastro@upf.edu>
+#' @importFrom googlesheets4 range_read
+#' @importFrom janitor clean_names
+#' @importFrom dplyr mutate
+#' @importFrom dplyr select
+import_phonemes <- function(){
+  # get phonemes from Google spreadsheet and process them
+  google_id <- "1iAK2zF84MqFwdLj-_CpWVC1O2xxmYDztc0Qe_2Sy0ww"
+  
+  suppressMessages({
+    phonemes <- clean_names(range_read(ss = google_id, sheet = "(Serene coding)")) %>% 
+      mutate(
+        description = tolower(ifelse(type=="Consonant", paste(voicing, place, manner), paste(height, backness, roundedness))),
+        bur = as.numeric(gsub("-", "0", bur))
+      ) %>% 
+      select(id = listing, ipa, trace = j_trace, description, is_english, is_spanish, is_catalan, type, pow, voc, dif, acu, con, voi, bur)
+  })
+  return(phonemes)
+}
+
+
+
+

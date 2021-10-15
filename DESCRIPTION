@@ -16,6 +16,7 @@ Imports:
     lifecycle,
     magrittr,
     mgsub,
+    Rdpack,
     readr,
     readxl,
     rJava,
@@ -28,13 +29,16 @@ Imports:
     utils,
     XML
 Suggests: 
+    covr,
+    googlesheets4,
+    gt,
+    ggcorrplot,
     knitr,
+    qpdf,
+    markdown,
+    rmarkdown,
     spelling,
     testthat (>= 3.0.0),
-    rmarkdown,
-    markdown,
-    qpdf,
-    covr
 Config/testthat/edition: 3
 Language: en-US
 URL: https://github.com/gongcastro/jtracer
@@ -42,3 +46,4 @@ BugReports: https://github.com/gongcastro/jtracer/issues
 Depends: 
     R (>= 2.10)
 VignetteBuilder: knitr
+RdMacros: Rdpack
