@@ -47,7 +47,10 @@
 
 
 <meta property="og:title" content="Phoneme inventory — phonemes" />
-<meta property="og:description" content="A dataset containing an extensive set of phonemes that can be transcribed from IPA or SAMPA to jTRACE notation using approximations." />
+<meta property="og:description" content="A dataset containing an extensive set of phonemes that can be transcribed
+from IPA or SAMPA to jTRACE notation using approximations. These dimensions are
+the same used in jTRACE (Strauss et al. 2007)
+." />
 <meta property="og:image" content="/logo.png" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:creator" content="@gongcastro" />
@@ -152,7 +155,10 @@
     </div>
 
     <div class="ref-description">
-    <p>A dataset containing an extensive set of phonemes that can be transcribed from IPA or SAMPA to jTRACE notation using approximations.</p>
+    <p>A dataset containing an extensive set of phonemes that can be transcribed
+from IPA or SAMPA to jTRACE notation using approximations. These dimensions are
+the same used in jTRACE (Strauss et al. 2007)
+.</p>
     </div>
 
     <pre class="usage"><span class='fu'><a href='https://rdrr.io/r/utils/data.html'>data</a></span><span class='op'>(</span><span class='va'>phonemes</span><span class='op'>)</span>
@@ -165,17 +171,33 @@
     <p>A data frame with 74 rows and 7 variables:</p><dl>
 <dt>id</dt><dd><p>Individual phoneme numeric identifier</p></dd>
 <dt>ipa</dt><dd><p>Phoneme symbol in IPA notation</p></dd>
-<dt>approximation</dt><dd><p>Closest IPA phoneme this phoneme will be collapsed into</p></dd>
-<dt>sampa</dt><dd><p>Phoneme symbol in SAMPA notation</p></dd>
-<dt>trace</dt><dd><p>Phoneme in jTRACE notation</p></dd>,
+<dt>trace</dt><dd><p>Phoneme symbol in jTRACE notation</p></dd>
 <dt>description</dt><dd><p>Rough classification of the phoneme</p></dd>
+<dt>is_english</dt><dd><p>Is this phoneme present in English?</p></dd>
+<dt>is_spanish</dt><dd><p>Is this phoneme present in Spanish?</p></dd>
+<dt>is_catalan</dt><dd><p>Is this phoneme present in Catalan?</p></dd>
 <dt>type</dt><dd><p>Is the phoneme a consonant or a vowel?</p></dd>
+<dt>pow</dt><dd><p>Power dimension (McClelland and Elman 1986)</p></dd>
+<dt>voc</dt><dd><p>Vocalic dimension</p></dd>
+<dt>dif</dt><dd><p>Diffusiveness dimension</p></dd>
+<dt>acu</dt><dd><p>Acuteness dimension</p></dd>
+<dt>con</dt><dd><p>Consonantal dimension</p></dd>
+<dt>voi</dt><dd><p>Voicing dimension</p></dd>
+<dt>bur</dt><dd><p>Burst dimension (McClelland and Elman 1986)</p></dd>
 
 </dl>
 
     <h2 class="hasAnchor" id="references"><a class="anchor" href="#references"></a>References</h2>
 
-    <p>Strauss, T. J., Harris, H. D., &amp; Magnuson, J. S. (2007). jTRACE: A reimplementation and extension of the TRACE model of speech perception and spoken word recognition. Behavior Research Methods, 39(1), 19-30.</p>
+    <p>Adummy A (2021).
+&#8220;Some keys from package jtracer are not avalable.&#8221;
+Failed to insert reference with keys:
+    strauss2007jtrace, mcclelland1986trace, jakobson1951preliminaries
+from package = 'jtracer'. Possible cause - missing REFERENCES.bib in package 'jtracer' or 'jtracer' not installed.<br /><br /> McClelland JL, Elman JL (1986).
+&#8220;The TRACE model of speech perception.&#8221;
+<em>Cognitive psychology</em>, <b>18</b>(1), 1--86.<br /><br /> Strauss TJ, Harris HD, Magnuson JS (2007).
+&#8220;jTRACE: A reimplementation and extension of the TRACE model of speech perception and spoken word recognition.&#8221;
+<em>Behavior Research Methods</em>, <b>39</b>(1), 19--30.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='fu'><a href='https://rdrr.io/r/utils/data.html'>data</a></span><span class='op'>(</span><span class='st'>"phonemes"</span><span class='op'>)</span>
