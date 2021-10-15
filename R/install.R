@@ -12,8 +12,8 @@
 #' @returns TRUE if Java is installed and version is 1.4 or higher, FALSE otherwise
 #' @references Strauss, T. J., Harris, H. D., & Magnuson, J. S. (2007). jTRACE: A reimplementation and extension of the TRACE model of speech perception and spoken word recognition. Behavior Research Methods, 39(1), 19-30.
 jtrace_check_java <- function(){
-  java_current_version <- system("java -version", intern = TRUE)
-  if (java_current_version==''){
+  java_current_version <- system("java -version", intern = TRUE)[1]
+  if (length(java_current_version) < 1 || java_current_version==''){
     is_valid <- FALSE
   } else {
     java_version <- as.numeric(substr(regmatches(
