@@ -1,8 +1,8 @@
 ---
-title: "Creating a language (phoneme inventory)"
+title: "Creating a language"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{Creating a language (phoneme inventory)}
+  %\VignetteIndexEntry{Creating a language}
   %\VignetteEngine{knitr::knitr}
   %\VignetteEncoding{UTF-8}
 ---
@@ -14,7 +14,7 @@ knitr::opts_chunk$set(
 )
 ```
 
-```{r prepare}
+```{r prepare, echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE}
 library(jtracer)
 jtrace_install()
 ```

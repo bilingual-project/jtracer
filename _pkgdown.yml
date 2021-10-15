@@ -56,6 +56,7 @@ articles:
   desc: ~
   contents:
   - '`launching-trace`'
+  - '`phoneme-inventory`'
   - '`create-language`'
   - '`create-lexicon`'
   - '`extract-language`'

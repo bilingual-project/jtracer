@@ -33,12 +33,13 @@ head(phonemes)
 
 ```
 
-Both versions were explicitly designed to fit the English phonology. We have coded new phonemes, not restricted to the ENglish phonology, in the `phonemes` data frame included in this package. This way, it is possible to run simlation on a model that is familiar to phonologies different than the English one, such as Spanish and Catalan. The dataframe includes three logical variables indicating whether a given phoneme is present in English (`is_english`), Spanish (`is_spanish`), or Catalan (`is_catalan`), respectively.
+Both versions were explicitly designed to fit the English phonology. We have coded new phonemes, not restricted to the English phonology, in the `phonemes` data frame included in this package. This way, it is possible to run simlation on a model that is familiar to phonologies different than the English one, such as Spanish and Catalan. The dataframe includes three logical variables indicating whether a given phoneme is present in English (`is_english`), Spanish (`is_spanish`), or Catalan (`is_catalan`), respectively.
 
 ## English phoneme set
 
 ```{r list_english, echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE}
 library(gt)
+library(dplyr)
 
 phonemes %>%
   filter(is_english) %>% 
