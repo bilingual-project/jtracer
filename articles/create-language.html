@@ -5,7 +5,7 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Creating a language (phoneme inventory) • jtracer</title>
+<title>Creating a language • jtracer</title>
 <!-- favicons --><link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
 <link rel="apple-touch-icon" type="image/png" sizes="180x180" href="../apple-touch-icon.png">
@@ -17,7 +17,7 @@
 <script src="../bootstrap-toc.js"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous">
 <!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- pkgdown --><link href="../pkgdown.css" rel="stylesheet">
-<script src="../pkgdown.js"></script><meta property="og:title" content="Creating a language (phoneme inventory)">
+<script src="../pkgdown.js"></script><meta property="og:title" content="Creating a language">
 <meta property="og:description" content="jtracer">
 <meta property="og:image" content="/logo.png">
 <meta name="twitter:card" content="summary_large_image">
@@ -64,7 +64,10 @@
   </a>
   <ul class="dropdown-menu" role="menu">
 <li>
-      <a href="../articles/create-language.html">Creating a language (phoneme inventory)</a>
+      <a href="../articles/phoneme-inventory.html">Phoneme inventory</a>
+    </li>
+    <li>
+      <a href="../articles/create-language.html">Creating a language</a>
     </li>
     <li>
       <a href="../articles/create-lexicon.html">Creating a lexicon</a>
@@ -104,7 +107,7 @@
       </header><script src="create-language_files/accessible-code-block-0.0.1/empty-anchor.js"></script><div class="row">
   <div class="col-md-9 contents">
     <div class="page-header toc-ignore">
-      <h1 data-toc-skip>Creating a language (phoneme inventory)</h1>
+      <h1 data-toc-skip>Creating a language</h1>
             
       
       <small class="dont-index">Source: <a href="https://github.com/gongcastro/jtracer/blob/master/vignettes/create-language.Rmd"><code>vignettes/create-language.Rmd</code></a></small>
@@ -114,19 +117,16 @@
 
     
     
-<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/gongcastro/jtracer">jtracer</a></span><span class="op">)</span>
-<span class="fu"><a href="../reference/jtrace_install.html">jtrace_install</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
 <p>We can create new languages by creating a set of phonemes and scoring them across the seven feature dimensions the TRACE model considers. The <code>jtrace_create_language</code> takes care of generating a file jTRACE can read and run simulations with.</p>
-<p>The <code>jtrace_create_language</code> takes, at least, a character value indicating the name you want to give your new language, a vector or phonemes (in jTRACE notation)ñ of length M, and a M x 7 matrix or data frame with the scores (0-9) of each phoneme (rows) in each of the feature dimensions (columns). If the feature data frame includes row names with valid phoneme symbols, you can omit the <code>phonemes</code> argument. Optionally, you can also provide duration values (0-1) for each phoneme in each feature as a M x 7 matrix with same dimensions as the one provided in the <code>features</code> argument, and/or a M x M matrix stating allophonic relations between phonemes (with logical values, TRUE/FALSE). See the documentation for more details (<code><a href="../reference/jtrace_create_language.html">?jtrace_create_language</a></code>).</p>
+<p>The <code>jtrace_create_language</code> takes, at least, a character value indicating the name you want to give your new language, a vector or phonemes (in jTRACE notation) of length M, and a M x 7 matrix or data frame with the scores (0-9) of each phoneme (rows) in each of the feature dimensions (columns). If the feature data frame includes row names with valid phoneme symbols, you can omit the <code>phonemes</code> argument. Optionally, you can also provide duration values (0-1) for each phoneme in each feature as a M x 7 matrix with same dimensions as the one provided in the <code>features</code> argument, and/or a M x M matrix stating allophonic relations between phonemes (with logical values, TRUE/FALSE). See the documentation for more details (<code><a href="../reference/jtrace_create_language.html">?jtrace_create_language</a></code>).</p>
 <div id="generate-a-phoneme-inventory" class="section level1">
 <h1 class="hasAnchor">
 <a href="#generate-a-phoneme-inventory" class="anchor"></a>Generate a phoneme inventory</h1>
 <p>First, we create a character vector with the phoneme symbols:</p>
-<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">p</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"-"</span>, <span class="st">"a"</span>, <span class="st">"s"</span>, <span class="st">"d"</span>, <span class="st">"f"</span>, <span class="st">"g"</span>, <span class="st">"c"</span><span class="op">)</span> </code></pre></div>
 <p>Then, we create a the features matrix (please note that scores are assigned randomly, and this example is not supposed to reflect a real-life case):</p>
-<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">f</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span>
   bur <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">9</span>, <span class="fl">6</span>, <span class="fl">4</span>, <span class="fl">3</span>, <span class="fl">1</span>, <span class="fl">1</span>, <span class="fl">2</span><span class="op">)</span>,
   voi <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">7</span>, <span class="fl">4</span>, <span class="fl">3</span>, <span class="fl">3</span>, <span class="fl">3</span>, <span class="fl">3</span>, <span class="fl">4</span><span class="op">)</span>,
@@ -138,7 +138,7 @@
 <span class="op">)</span></code></pre></div>
 <p>Of course, it can be cumbersome to create a data frame like this. An alternative would be to create a table in an Excel spreadsheet and importing it to your R session or copy-pasting it into your console using the “Paste as tribble” adding from the <a href="https://github.com/MilesMcBain/datapasta">datapasta</a> R package.</p>
 <p>We are all set up now!</p>
-<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="../reference/jtrace_create_language.html">jtrace_create_language</a></span><span class="op">(</span>
   language_name <span class="op">=</span> <span class="st">"my_language"</span>,
   phonemes <span class="op">=</span> <span class="va">p</span>,
