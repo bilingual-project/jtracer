@@ -1,0 +1,159 @@
+---
+title: "Phoneme inventory"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Phoneme inventory}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+
+```
+
+```{r prepare, message=FALSE, warning=FALSE, include=FALSE, paged.print=FALSE}
+library(jtracer)
+jtrace_install()
+```
+
+At the lowest level of the TRACE model's architecture lie the acoustic features associated with the phonemes that compose words in the lexicon. jTRACE considers seven feature dimensions (see `?phonemes`):  power (`pow`), vocalic (`vow`), diffusiveness (`dif`), acuteness (`acu`), consonantal (`con`), voicing (`voi`), and burst (`bur`). These are the original dimensions used by McClelland and Elman (1986) in their original implementation of TRACE. Prior to the simulation, the model is introduced to a set of familiar phonemes, mimicking its familiarity with a language. Each of these phonemes are coded by assigning them a 1-9 score in each of the feature dimensions. McClelland and Elman's original phoneme set was later extended by Mayor and Plunkett (2014).
+
+
+```{r matrix}
+library(jtracer)
+data("phonemes")
+Encoding(phonemes[["ipa"]]) <- "Latin-1"
+Encoding(phonemes[["trace"]]) <- "Latin-1"
+
+head(phonemes)
+
+```
+
+Both versions were explicitly designed to fit the English phonology. We have coded new phonemes, not restricted to the ENglish phonology, in the `phonemes` data frame included in this package. This way, it is possible to run simlation on a model that is familiar to phonologies different than the English one, such as Spanish and Catalan. The dataframe includes three logical variables indicating whether a given phoneme is present in English (`is_english`), Spanish (`is_spanish`), or Catalan (`is_catalan`), respectively.
+
+## English phoneme set
+
+```{r list_english, echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE}
+library(gt)
+
+phonemes %>%
+  filter(is_english) %>% 
+  select(-starts_with("is_")) %>% 
+  rename_at(vars(pow:bur), toupper) %>% 
+  gt(rowname_col = "id", groupname_col = "type") %>% 
+  tab_spanner(md("**Acoustic features**"), columns = 6:12) %>% 
+  cols_label(
+    ipa = md("**IPA symbol**"),
+    trace = md("**jTRACE symbol**"),
+    description = ""
+  ) %>% 
+  data_color(
+    columns = 6:12,
+    colors = scales::col_numeric(
+      palette = c(
+        "white", "orange"), 
+      domain = c(0, 9)
+    )
+  )
+```
+
+## Spanish phoneme set
+
+```{r list_spanish, echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE}
+phonemes %>%
+  filter(is_spanish) %>% 
+  select(-starts_with("is_")) %>% 
+  rename_at(vars(pow:bur), toupper) %>% 
+  gt(rowname_col = "id", groupname_col = "type") %>% 
+  tab_spanner(md("**Acoustic features**"), columns = 6:12) %>% 
+  cols_label(
+    ipa = md("**IPA symbol**"),
+    trace = md("**jTRACE symbol**"),
+    description = ""
+  ) %>% 
+  data_color(
+    columns = 6:12,
+    colors = scales::col_numeric(
+      palette = c(
+        "white", "orange"), 
+      domain = c(0, 9)
+    )
+  )
+```
+
+## Catalan phoneme set
+
+```{r list_catalan, echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE}
+phonemes %>%
+  filter(is_catalan) %>% 
+  select(-starts_with("is_")) %>% 
+  rename_at(vars(pow:bur), toupper) %>% 
+  gt(rowname_col = "id", groupname_col = "type") %>% 
+  tab_spanner(md("**Acoustic features**"), columns = 6:12) %>% 
+  cols_label(
+    ipa = md("**IPA symbol**"),
+    trace = md("**jTRACE symbol**"),
+    description = ""
+  ) %>% 
+  data_color(
+    columns = 6:12,
+    colors = scales::col_numeric(
+      palette = c(
+        "white", "orange"), 
+      domain = c(0, 9)
+    )
+  )
+```
+
+
+How are the seven feature dimensions related to each other?
+
+```{r cors, echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE}
+library(ggplot2)
+library(ggcorrplot)
+
+corr <- cor_pmat(phonemes[, 6:12])
+colnames(corr) <- toupper(colnames(corr))
+rownames(corr) <- toupper(colnames(corr))
+
+ggcorrplot(
+  corr, type = "upper", hc.order = TRUE, outline.color = "grey",
+  lab = TRUE, colors = c("#f76560", "grey90", "#60f777"), show.diag = TRUE
+) +
+  theme_minimal() +
+  theme(
+    legend.position = "right",
+    axis.title = element_blank(),
+    axis.text = element_text(colour = "black"),
+    panel.grid = element_blank()
+  )
+```
+
+This is the complete list of implemented phonemes: 
+
+
+```{r list}
+phonemes %>% 
+  rename_at(vars(pow:bur), toupper) %>% 
+  gt(rowname_col = "id", groupname_col = "type") %>% 
+  tab_spanner(md("**Acoustic features**"), columns = 6:12) %>% 
+  cols_label(
+    ipa = md("**IPA**"),
+    trace = md("**jTRACE**"),
+    description = ""
+  ) %>% 
+  data_color(
+    columns = 6:12,
+    colors = scales::col_numeric(
+      palette = c(
+        "white", "orange"), 
+      domain = c(0, 9)
+    )
+  )
+```
+
+

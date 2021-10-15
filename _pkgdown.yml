@@ -38,7 +38,9 @@ navbar:
     articles:
       text: Articles
       menu:
-      - text: Creating a language (phoneme inventory)
+      - text: Phoneme inventory
+        href: articles/phoneme-inventory.html
+      - text: Creating a language
         href: articles/create-language.html
       - text: Creating a lexicon
         href: articles/create-lexicon.html
